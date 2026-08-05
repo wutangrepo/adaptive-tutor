@@ -1,0 +1,37 @@
+[
+  {
+    "id": "ex1-5-1a", "source": "Exercises 1, Ex 5(1)",
+    "type": "set_computation", "grading_mode": "deterministic",
+    "concepts": ["union", "set-difference"], "difficulty": 2,
+    "stem": "Let A = {a, b, 1}, B = {a, 1, 2}, C = {1, 2}. Compute (A ∪ B) \\ C.",
+    "payload": {"given": {"A": ["a","b","1"], "B": ["a","1","2"], "C": ["1","2"]}, "answer": ["a","b"]}
+  },
+  {
+    "id": "ex1-5-1b", "source": "Exercises 1, Ex 5(1)",
+    "type": "set_computation", "grading_mode": "deterministic",
+    "concepts": ["intersection", "union"], "difficulty": 2,
+    "stem": "Let A = {a, b, 1}, B = {a, 1, 2}, C = {1, 2}. Compute (A ∩ B) ∪ C.",
+    "payload": {"given": {"A": ["a","b","1"], "B": ["a","1","2"], "C": ["1","2"]}, "answer": ["a","1","2"]}
+  },
+  {
+    "id": "ex1-5-1c", "source": "Exercises 1, Ex 5(1)",
+    "type": "set_computation", "grading_mode": "deterministic",
+    "concepts": ["set-difference"], "difficulty": 2,
+    "stem": "Let A = {a, b, 1}, B = {a, 1, 2}, C = {1, 2}. Compute A \\ B \\ C.",
+    "payload": {"given": {"A": ["a","b","1"], "B": ["a","1","2"], "C": ["1","2"]}, "answer": ["b"]}
+  },
+  {
+    "id": "ex1-5-1d", "source": "Exercises 1, Ex 5(1)",
+    "type": "set_computation", "grading_mode": "deterministic",
+    "concepts": ["set-difference", "union"], "difficulty": 3,
+    "stem": "Let A = {a, b, 1}, B = {a, 1, 2}, C = {1, 2}. Compute B \\ (A ∪ C).",
+    "payload": {"given": {"A": ["a","b","1"], "B": ["a","1","2"], "C": ["1","2"]}, "answer": []}
+  },
+  {
+    "id": "ex1-5-1e", "source": "Exercises 1, Ex 5(1)",
+    "type": "set_computation", "grading_mode": "deterministic",
+    "concepts": ["symmetric-difference", "set-difference"], "difficulty": 3,
+    "stem": "Let A = {a, b, 1}, B = {a, 1, 2}, C = {1, 2}. Compute (A Δ B) \\ C.",
+    "payload": {"given": {"A": ["a","b","1"], "B": ["a","1","2"], "C": ["1","2"]}, "answer": ["b"]}
+  }
+]
