@@ -1,37 +1,55 @@
 [
-  {
-    "id": "ex1-5-1a", "source": "Exercises 1, Ex 5(1)",
-    "type": "set_computation", "grading_mode": "deterministic",
-    "concepts": ["union", "set-difference"], "difficulty": 2,
-    "stem": "Let A = {a, b, 1}, B = {a, 1, 2}, C = {1, 2}. Compute (A ∪ B) \\ C.",
-    "payload": {"given": {"A": ["a","b","1"], "B": ["a","1","2"], "C": ["1","2"]}, "answer": ["a","b"]}
-  },
-  {
-    "id": "ex1-5-1b", "source": "Exercises 1, Ex 5(1)",
-    "type": "set_computation", "grading_mode": "deterministic",
-    "concepts": ["intersection", "union"], "difficulty": 2,
-    "stem": "Let A = {a, b, 1}, B = {a, 1, 2}, C = {1, 2}. Compute (A ∩ B) ∪ C.",
-    "payload": {"given": {"A": ["a","b","1"], "B": ["a","1","2"], "C": ["1","2"]}, "answer": ["a","1","2"]}
-  },
-  {
-    "id": "ex1-5-1c", "source": "Exercises 1, Ex 5(1)",
-    "type": "set_computation", "grading_mode": "deterministic",
-    "concepts": ["set-difference"], "difficulty": 2,
-    "stem": "Let A = {a, b, 1}, B = {a, 1, 2}, C = {1, 2}. Compute A \\ B \\ C.",
-    "payload": {"given": {"A": ["a","b","1"], "B": ["a","1","2"], "C": ["1","2"]}, "answer": ["b"]}
-  },
-  {
-    "id": "ex1-5-1d", "source": "Exercises 1, Ex 5(1)",
-    "type": "set_computation", "grading_mode": "deterministic",
-    "concepts": ["set-difference", "union"], "difficulty": 3,
-    "stem": "Let A = {a, b, 1}, B = {a, 1, 2}, C = {1, 2}. Compute B \\ (A ∪ C).",
-    "payload": {"given": {"A": ["a","b","1"], "B": ["a","1","2"], "C": ["1","2"]}, "answer": []}
-  },
-  {
-    "id": "ex1-5-1e", "source": "Exercises 1, Ex 5(1)",
-    "type": "set_computation", "grading_mode": "deterministic",
-    "concepts": ["symmetric-difference", "set-difference"], "difficulty": 3,
-    "stem": "Let A = {a, b, 1}, B = {a, 1, 2}, C = {1, 2}. Compute (A Δ B) \\ C.",
-    "payload": {"given": {"A": ["a","b","1"], "B": ["a","1","2"], "C": ["1","2"]}, "answer": ["b"]}
-  }
+  {"id": "ex11-4", "source": "Exercises 11, Ex 4", "type": "logic_eval",
+   "grading_mode": "deterministic", "concepts": ["logical-function", "function-evaluation"],
+   "difficulty": 2,
+   "stem": "Specify the value of f(x1, x2) = (x1 ⊕ x2) ⊕ (x1 ∨ x2) if x1 = 1, x2 = 0. (answer 0 or 1)",
+   "payload": {"formula": "(x1 ⊕ x2) ⊕ (x1 ∨ x2)", "assignment": {"x1": 1, "x2": 0}}},
+
+  {"id": "ex11-5", "source": "Exercises 11, Ex 5", "type": "logic_eval",
+   "grading_mode": "deterministic", "concepts": ["logical-function", "function-evaluation"],
+   "difficulty": 2,
+   "stem": "Specify the value of f(x1, x2) = (x1 ⊕ x2) ∧ (¬x1 ⊕ x2) if x1 = 1, x2 = 1. (answer 0 or 1)",
+   "payload": {"formula": "(x1 ⊕ x2) ∧ (¬x1 ⊕ x2)", "assignment": {"x1": 1, "x2": 1}}},
+
+  {"id": "ex11-6", "source": "Exercises 11, Ex 6", "type": "logic_eval",
+   "grading_mode": "deterministic", "concepts": ["logical-function", "function-evaluation"],
+   "difficulty": 3,
+   "stem": "Specify the value of f(x1, x2, x3) = (x1 ⊕ x2) ∧ (x1 ⊕ x3) ∧ (¬x2 ∨ ¬x3) if x1 = 1, x2 = 1, x3 = 0. (answer 0 or 1)",
+   "payload": {"formula": "(x1 ⊕ x2) ∧ (x1 ⊕ x3) ∧ (¬x2 ∨ ¬x3)", "assignment": {"x1": 1, "x2": 1, "x3": 0}}},
+
+  {"id": "ex9-8-1", "source": "Exercises 9, Ex 8(1)", "type": "tautology_check",
+   "grading_mode": "deterministic", "concepts": ["tautology", "zero-one-method"],
+   "difficulty": 2,
+   "stem": "Is (A ∧ B) → A a tautology? (yes/no)",
+   "payload": {"formula": "(A ∧ B) → A"}},
+
+  {"id": "ex9-8-5", "source": "Exercises 9, Ex 8(5)", "type": "tautology_check",
+   "grading_mode": "deterministic", "concepts": ["tautology", "zero-one-method"],
+   "difficulty": 2,
+   "stem": "Is ¬(A → B) → ¬B a tautology? (yes/no)",
+   "payload": {"formula": "¬(A → B) → ¬B"}},
+
+  {"id": "ex9-9-6", "source": "Exercises 9, Ex 9(6)", "type": "equivalence_check",
+   "grading_mode": "deterministic", "concepts": ["logical-equivalence"],
+   "difficulty": 2,
+   "stem": "Are ¬(B ∧ C) and ¬B ∨ ¬C logically equivalent? (yes/no)",
+   "payload": {"formula1": "¬(B ∧ C)", "formula2": "¬B ∨ ¬C"}},
+
+  {"id": "ex9-9-7", "source": "Exercises 9, Ex 9(7)", "type": "equivalence_check",
+   "grading_mode": "deterministic", "concepts": ["logical-equivalence"],
+   "difficulty": 2,
+   "stem": "Are A → B and ¬A ∨ B logically equivalent? (yes/no)",
+   "payload": {"formula1": "A → B", "formula2": "¬A ∨ B"}},
+
+  {"id": "ex8-8-2", "source": "Exercises 8, Ex 8(2)", "type": "mcq",
+   "grading_mode": "deterministic", "concepts": ["statement", "logical-connectives"],
+   "difficulty": 1,
+   "stem": "Let A = \"I study logic\", B = \"I will be an engineer\". Which formula represents: \"I study logic but I will not be an engineer\"?",
+   "payload": {"options": ["A ∧ B", "A ∧ ¬B", "¬A ∧ ¬B", "A → ¬B"], "answer_index": 1}},
+
+  {"id": "ex8-8-5", "source": "Exercises 8, Ex 8(5)", "type": "mcq",
+   "grading_mode": "deterministic", "concepts": ["statement", "logical-connectives"],
+   "difficulty": 1,
+   "stem": "Let A = \"I study logic\", B = \"I will be an engineer\". Which formula represents: \"If I study logic, then I will be an engineer\"?",
+   "payload": {"options": ["A ∨ B", "B → A", "A → B", "A ↔ B"], "answer_index": 2}}
 ]
