@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+
+# Derived artifacts
+*.db
+
+# environment
+.venv/
+
+# pytest
+.pytest_cache/
+.coverage
+
+# editor
+.vscode/
