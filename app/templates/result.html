@@ -1,0 +1,13 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Result</title></head>
+<body style="max-width:640px;margin:2rem auto;font-family:sans-serif">
+  {% if error %}
+    <h2>⚠️ Couldn't read your answer</h2><p>{{ error }}</p>
+  {% elif correct %}
+    <h2>✅ Correct</h2>
+  {% else %}
+    <h2>❌ Not quite</h2><p>Expected: <b>{{ expected }}</b></p>
+  {% endif %}
+  <p><small>{{ item.stem }}</small></p>
+  <a href="/?idx={{ next }}">Next question →</a>
+</body></html>
