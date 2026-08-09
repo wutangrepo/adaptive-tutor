@@ -20,7 +20,7 @@ def _parse_yesno(text: str) -> bool:
 
 
 def grade(item, answer_text: str):
-    """返回 (is_correct, expected_display)。"""
+    """Return (is_correct, expected_display)。"""
     p = item.payload
     if item.type == 'logic_eval':
         expected = proplog.evaluate(p['formula'], p['assignment'])
