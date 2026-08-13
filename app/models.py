@@ -1,4 +1,5 @@
-from sqlalchemy import Column, Integer, String, Text, JSON
+from sqlalchemy import Column, Integer, String, Text, JSON, DateTime
+from datetime import datetime, timezone
 from .db import Base
 
 class Item(Base):
@@ -11,3 +12,11 @@ class Item(Base):
     difficulty = Column(Integer, default=1)
     stem = Column(Text)
     payload = Column(JSON)
+
+class Attempt(Base):
+    __tablename__ = "attempts"
+    id = Column(Integer, primary_key=True)
+    learner_id = Column(String, index=True)
+    item_id = Column(String)
+    correct = Column(Integer)
+    created_at = Column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
