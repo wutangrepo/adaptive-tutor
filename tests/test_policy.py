@@ -40,4 +40,4 @@ def test_prereq_gate():
 
 def test_update_rule():
     m = adaptive.update(adaptive.init_mastery(["tautology"]), ["tautology"], False)
-    assert m["tautology"] == 0.25                            # 0.5 + 0.25*(0-0.5)
+    assert m["tautology"] == 0.375   # 0.5 + 0.25*(0-0.5) = 0.375
