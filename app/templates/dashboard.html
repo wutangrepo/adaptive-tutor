@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Mastery Dashboard</title>
+<style>
+  body   { max-width: 640px; margin: 2rem auto; font-family: sans-serif; }
+  table  { border-collapse: collapse; width: 100%; }
+  td, th { padding: 6px 10px; border: 1px solid #ccc; text-align: left; }
+  .bad   { background: #f8d7da; }
+  .mid   { background: #fff3cd; }
+  .good  { background: #d4edda; }
+</style>
+</head>
+<body>
+  <h2>Mastery heatmap — {{ sid }}</h2>
+  <table>
+    <tr><th>concept</th><th>mastery</th></tr>
+    {% for concept, m in rows %}
+    <tr class="{% if m < 0.5 %}bad{% elif m < 0.75 %}mid{% else %}good{% endif %}">
+      <td>{{ concept }}</td>
+      <td>{{ "%.2f"|format(m) }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <p><a href="/?sid={{ sid }}">continue</a></p>
+</body>
+</html>

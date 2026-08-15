@@ -4,7 +4,8 @@
   <h2>Question {{ idx + 1 }} / {{ total }}</h2>
   <p><small>[{{ item.type }}] {{ item.source }}</small></p>
   <p>{{ item.stem }}</p>
-  <form method="post" action="/answer/{{ idx }}">
+  <details open><summary>Why this question?</summary><p>{{ why }}</p></details>
+  <form method="post" action="/answer/{{ item.id }}?sid={{ sid }}">
     {% if item.type == 'mcq' %}
       {% for opt in item.payload.options %}
         <label style="display:block;margin:.25rem 0">
