@@ -1,10 +1,16 @@
 <!doctype html>
-<html><head><meta charset="utf-8"><title>Adaptive Tutor</title></head>
+<html>
+<head><meta charset="utf-8"><title>Adaptive Tutor</title></head>
 <body style="max-width:640px;margin:2rem auto;font-family:sans-serif">
-  <h2>Question {{ idx + 1 }} / {{ total }}</h2>
+  <h2>Question {{ n + 1 }}</h2>
   <p><small>[{{ item.type }}] {{ item.source }}</small></p>
   <p>{{ item.stem }}</p>
-  <details open><summary>Why this question?</summary><p>{{ why }}</p></details>
+
+  <details open>
+    <summary>Why this question?</summary>
+    <p>{{ why }}</p>
+  </details>
+
   <form method="post" action="/answer/{{ item.id }}?sid={{ sid }}">
     {% if item.type == 'mcq' %}
       {% for opt in item.payload.options %}
@@ -13,8 +19,12 @@
         </label>
       {% endfor %}
     {% else %}
-      <input name="student_answer" autofocus autocomplete="off" placeholder="your answer">
+      <input name="student_answer" autofocus autocomplete="off"
+             placeholder="your answer (0/1 or yes/no)">
     {% endif %}
     <br><br><button type="submit">Submit</button>
   </form>
-</body></html>
+
+  <p><a href="/dashboard?sid={{ sid }}">view mastery dashboard</a></p>
+</body>
+</html>
