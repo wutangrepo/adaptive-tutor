@@ -1,0 +1,13 @@
+{"slice": "propositional-logic", "concepts": [
+  {"id": "statement",            "name": "Statement & truth values",      "lecture": 8,  "prereqs": []},
+  {"id": "logical-connectives",  "name": "Connectives ¬ ∧ ∨ → ↔",         "lecture": 8,  "prereqs": ["statement"]},
+  {"id": "truth-table",          "name": "Truth tables",                  "lecture": 8,  "prereqs": ["logical-connectives"]},
+  {"id": "formula-syntax",       "name": "Well-formed formulas",          "lecture": 9,  "prereqs": ["logical-connectives"]},
+  {"id": "tautology",            "name": "Tautology / contradiction",     "lecture": 9,  "prereqs": ["truth-table"]},
+  {"id": "zero-one-method",      "name": "Zero-one method",               "lecture": 9,  "prereqs": ["tautology"]},
+  {"id": "logical-equivalence",  "name": "Logical equivalence",           "lecture": 9,  "prereqs": ["truth-table"]},
+  {"id": "inference-rules",      "name": "Inference rules",               "lecture": 10, "prereqs": ["truth-table"]},
+  {"id": "logical-function",     "name": "Logical (Boolean) functions",   "lecture": 11, "prereqs": ["logical-connectives"]},
+  {"id": "function-evaluation",  "name": "Evaluating logic functions",    "lecture": 11, "prereqs": ["logical-function", "zero-one-method"]},
+  {"id": "boolean-algebra-laws", "name": "Laws of algebra of logic",      "lecture": 11, "prereqs": ["logical-equivalence", "logical-function"]}
+]}
