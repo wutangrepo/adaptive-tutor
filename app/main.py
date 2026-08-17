@@ -38,16 +38,17 @@ def load_state(sid: str):
 @app.get("/")
 def quiz(request: Request, sid: str = "demo", mode: str = "adaptive"):
     st = load_state(sid)
-    if mode == "adaptive" and adaptive.should_stop(st.mastery, st.n):
+    if mode == "adaptive" and adaptive.should_stop(st.mastery, st.n, cap=len(st.items)):
         return templates.TemplateResponse(request, "done.html", {"sid": sid, "n": st.n})
     if mode == "adaptive":
         item, p = adaptive.select(st.items, st.mastery, st.prereqs, st.seen)
-        why = adaptive.explain(item, p, st.mastery, st.prereqs)
+        why = adaptive.explain(item, st.mastery, st.prereqs)
     else:
         item = st.items[st.n % len(st.items)]
         why = "fixed order (demo fallback)"
     return templates.TemplateResponse(request, "quiz.html",
-                                      {"item": item, "why": why, "sid": sid, "n": st.n})
+                                      {"item": item, "why": why, "sid": sid, "n": st.n,
+                                       "concept_mastery": st.mastery})
 
 
 @app.post("/answer/{item_id}")

@@ -11,6 +11,21 @@
     <p>{{ why }}</p>
   </details>
 
+  <div style="margin:1rem 0;padding:.6rem;border:1px solid #ddd;border-radius:6px">
+    <strong>Mastery of this question's concepts (updates after each answer):</strong>
+    {% for c in item.concepts %}
+      {% set val = concept_mastery.get(c, 0) %}
+      {% set pct = val * 100 %}
+      {% set col = '#4caf50' if val >= 0.75 else ('#ff9800' if val >= 0.5 else '#e53935') %}
+      <div style="margin:.4rem 0;font-size:.9rem">
+        <div>{{ c }} — {{ '%.0f'|format(pct) }}%</div>
+        <div style="background:#eee;border-radius:4px;height:10px;margin-top:2px;overflow:hidden">
+          <div style="width:{{ pct }}%;height:10px;background:{{ col }}"></div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
   <form method="post" action="/answer/{{ item.id }}?sid={{ sid }}">
     {% if item.type == 'mcq' %}
       {% for opt in item.payload.options %}
