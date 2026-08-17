@@ -1,10 +1,31 @@
 <!doctype html>
-<html><head><meta charset="utf-8"><title>Adaptive Tutor</title></head>
+<html>
+<head><meta charset="utf-8"><title>Adaptive Tutor</title></head>
 <body style="max-width:640px;margin:2rem auto;font-family:sans-serif">
-  <h2>Question {{ idx + 1 }} / {{ total }}</h2>
+  <h2>Question {{ n + 1 }}</h2>
   <p><small>[{{ item.type }}] {{ item.source }}</small></p>
   <p>{{ item.stem }}</p>
-  <details open><summary>Why this question?</summary><p>{{ why }}</p></details>
+
+  <details open>
+    <summary>Why this question?</summary>
+    <p>{{ why }}</p>
+  </details>
+
+  <div style="margin:1rem 0;padding:.6rem;border:1px solid #ddd;border-radius:6px">
+    <strong>Mastery of this question's concepts (updates after each answer):</strong>
+    {% for c in item.concepts %}
+      {% set val = concept_mastery.get(c, 0) %}
+      {% set pct = val * 100 %}
+      {% set col = '#4caf50' if val >= 0.75 else ('#ff9800' if val >= 0.5 else '#e53935') %}
+      <div style="margin:.4rem 0;font-size:.9rem">
+        <div>{{ c }} — {{ '%.0f'|format(pct) }}%</div>
+        <div style="background:#eee;border-radius:4px;height:10px;margin-top:2px;overflow:hidden">
+          <div style="width:{{ pct }}%;height:10px;background:{{ col }}"></div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
   <form method="post" action="/answer/{{ item.id }}?sid={{ sid }}">
     {% if item.type == 'mcq' %}
       {% for opt in item.payload.options %}
@@ -13,8 +34,12 @@
         </label>
       {% endfor %}
     {% else %}
-      <input name="student_answer" autofocus autocomplete="off" placeholder="your answer">
+      <input name="student_answer" autofocus autocomplete="off"
+             placeholder="your answer (0/1 or yes/no)">
     {% endif %}
     <br><br><button type="submit">Submit</button>
   </form>
-</body></html>
+
+  <p><a href="/dashboard?sid={{ sid }}">view mastery dashboard</a></p>
+</body>
+</html>

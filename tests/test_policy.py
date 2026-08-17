@@ -33,6 +33,22 @@ def test_paths_diverge():
     assert sum(t in ("ex9-8-1",) for t in gap[0]) >= 1       # learners with gaps are directed to fill them
     assert exp[1]["function-evaluation"] > .7 > nov[1]["function-evaluation"]
 
+def test_no_stuck_single_question():
+    # Regression guard: a learner who misses the early questions once used to get
+    # their prerequisites marked as unsatisfied, which hid the rest of the pool
+    # and left them cycling the *same* question for the whole session. The pool
+    # must stay open and the learner must be shown a variety of items to recover.
+    mastery, seq, seen = adaptive.init_mastery(CONCEPTS), [], set()
+    for n in range(10):
+        item, p = adaptive.select(ITEMS, mastery, PREREQS, seen)
+        assert item is not None          # pool never collapses to "nothing to serve"
+        seq.append(item.id); seen.add(item.id)
+        mastery = adaptive.update(mastery, item.concepts, n >= 3)  # 3 wrong, then right
+    assert len(set(seq)) >= 4            # not stuck on a single question
+    # A fresh/weak learner is not offered the hardest tier.
+    assert adaptive.difficulty_cap(adaptive.init_mastery(CONCEPTS)) == 2
+
+
 def test_prereq_gate():
     m = adaptive.init_mastery(CONCEPTS); m["zero-one-method"] = .3
     it = [i for i in ITEMS if i.id == "ex11-4"][0]
