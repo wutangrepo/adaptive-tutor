@@ -7,7 +7,7 @@ from fastapi.templating import Jinja2Templates
 
 from . import adaptive, grading
 from .db import Base, SessionLocal, engine
-from .models import Attempt, Item
+from .models import Attempt, Item, Assessment, AuditLog, HintDraft
 
 DATA = Path(__file__).resolve().parent.parent / "data"
 
