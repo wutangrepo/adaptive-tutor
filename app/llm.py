@@ -62,12 +62,25 @@ class OllamaProvider:
                 json={
                     "model": self.model,
                     "prompt": prompt,
-                    "stream": False
+                    "stream": False,
+                    # qwen3.5-style *thinking* models otherwise burn the whole
+                    # token budget on hidden reasoning and return an empty
+                    # "response" (the reasoning lands in a separate field).
+                    "think": False,
+                    # Cap generation and context: CPU inference is slow, and
+                    # qwen's default 262k context makes prompts expensive.
+                    "options": {"num_predict": 400, "num_ctx": 4096},
                 },
-                timeout=60
+                timeout=300  # local models can be slow on cold start / CPU
             )
             response.raise_for_status()  # requests does not raise for bad HTTP status codes, so we need to do it manually
-            return response.json()["response"]
+            text = response.json()["response"]
+            if not text.strip():
+                # Thinking models can still return "" if they exhaust their
+                # budget before producing visible output -- treat as outage
+                # so callers route to their fallback instead of storing junk.
+                raise ValueError("model returned an empty response")
+            return text
         except Exception as e:
             raise ProviderDown(str(e))
 

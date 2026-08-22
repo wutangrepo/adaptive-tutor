@@ -6,6 +6,12 @@
   <p><small>[{{ item.type }}] {{ item.source }}</small></p>
   <p>{{ item.stem }}</p>
 
+  {% if hint %}
+    <div style="background:#fff8e1;border:1px solid #ffe082;border-radius:6px;padding:.5rem;margin:.6rem 0">
+      💡 <b>Hint:</b> {{ hint }}
+    </div>
+  {% endif %}
+
   <details open>
     <summary>Why this question?</summary>
     <p>{{ why }}</p>
@@ -40,6 +46,12 @@
     <br><br><button type="submit">Submit</button>
   </form>
 
-  <p><a href="/dashboard?sid={{ sid }}">view mastery dashboard</a></p>
+  <p>
+    <a href="/dashboard?sid={{ sid }}">view mastery dashboard</a> ·
+    <a href="/review">professor review</a> ·
+    <form method="post" action="/hints/draft/{{ item.id }}" style="display:inline">
+      <button type="submit" style="font-size:.85rem">💡 draft an AI hint for this question</button>
+    </form>
+  </p>
 </body>
 </html>

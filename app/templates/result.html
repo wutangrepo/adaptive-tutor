@@ -9,5 +9,16 @@
     <h2>❌ Not quite</h2><p>Expected: <b>{{ expected }}</b></p>
   {% endif %}
   <p><small>{{ item.stem }}</small></p>
+
+  <details style="margin:.8rem 0">
+    <summary>🤖 Want an AI second opinion on your reasoning?</summary>
+    <form method="post" action="/assess/{{ item.id }}?sid={{ sid }}">
+      <input type="hidden" name="sid" value="{{ sid }}">
+      <textarea name="answer_text" rows="3" style="width:100%"
+                placeholder="explain how you arrived at your answer…"></textarea>
+      <br><button type="submit">Ask AI to draft a grade (goes to professor review)</button>
+    </form>
+  </details>
+
   <a href="/?sid={{ sid }}">Next question →</a>
 </body></html>

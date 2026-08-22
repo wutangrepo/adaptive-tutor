@@ -3,6 +3,7 @@ __pycache__/
 
 # Derived artifacts
 *.db
+extracted_*.txt
 
 # environment
 .venv/
