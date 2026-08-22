@@ -48,7 +48,7 @@ class Assessment(Base):
 class AuditLog(Base):
     __tablename__ = "audit_log"
     id = Column(Integer, primary_key=True)
-    actor = Column(String, nullable=False)  # "ollama:llama3.2:3b" | "professor" | "system"
+    actor = Column(String, nullable=False)  # "ollama:qwen3.5:4b" | "professor" | "system"
     action = Column(String, nullable=False)       # grade_drafted | approved | overridden | hint_approved ...
     target = Column(String, nullable=False)
     detail = Column(JSON)
