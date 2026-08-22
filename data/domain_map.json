@@ -1,7 +1,7 @@
-{"slice": "propositional-logic", "concepts": [
+{"slice": "logic-and-set-theory", "concepts": [
   {"id": "statement",            "name": "Statement & truth values",      "lecture": 8,  "prereqs": []},
-  {"id": "logical-connectives",  "name": "Connectives ¬ ∧ ∨ → ↔",         "lecture": 8,  "prereqs": ["statement"]},
-  {"id": "truth-table",          "name": "Truth tables",                  "lecture": 8,  "prereqs": ["logical-connectives"]},
+  {"id": "logical-connectives",  "name": "Connectives ¬ ∧ ∨ → ↔ ⊕",       "lecture": 8,  "prereqs": ["statement"]},
+  {"id": "truth-table",          "name": "Truth tables",                  "lecture": 9,  "prereqs": ["logical-connectives"]},
   {"id": "formula-syntax",       "name": "Well-formed formulas",          "lecture": 9,  "prereqs": ["logical-connectives"]},
   {"id": "tautology",            "name": "Tautology / contradiction",     "lecture": 9,  "prereqs": ["truth-table"]},
   {"id": "zero-one-method",      "name": "Zero-one method",               "lecture": 9,  "prereqs": ["tautology"]},
@@ -9,5 +9,24 @@
   {"id": "inference-rules",      "name": "Inference rules",               "lecture": 10, "prereqs": ["truth-table"]},
   {"id": "logical-function",     "name": "Logical (Boolean) functions",   "lecture": 11, "prereqs": ["logical-connectives"]},
   {"id": "function-evaluation",  "name": "Evaluating logic functions",    "lecture": 11, "prereqs": ["logical-function", "zero-one-method"]},
-  {"id": "boolean-algebra-laws", "name": "Laws of algebra of logic",      "lecture": 11, "prereqs": ["logical-equivalence", "logical-function"]}
+  {"id": "boolean-algebra-laws", "name": "Laws of algebra of logic",      "lecture": 11, "prereqs": ["logical-equivalence", "logical-function"]},
+
+  {"id": "set-operations",       "name": "Union, intersection, difference, symmetric difference", "lecture": 1, "prereqs": []},
+  {"id": "set-identities",       "name": "Set equalities & identities",   "lecture": 1,  "prereqs": ["set-operations"]},
+  {"id": "power-set",            "name": "Power set P(A)",                "lecture": 1,  "prereqs": ["set-operations"]},
+  {"id": "cartesian-product",    "name": "Cartesian product A × B",       "lecture": 2,  "prereqs": ["set-operations"]},
+  {"id": "binary-relations",     "name": "Binary relations on a set",     "lecture": 2,  "prereqs": ["cartesian-product"]},
+  {"id": "relation-properties",  "name": "Reflexive, symmetric, transitive relations", "lecture": 2, "prereqs": ["binary-relations"]},
+  {"id": "functions-rel",        "name": "Functions as relations",        "lecture": 3,  "prereqs": ["binary-relations"]},
+  {"id": "ordering-relations",   "name": "Ordering relations & Hasse diagrams", "lecture": 4, "prereqs": ["relation-properties"]},
+  {"id": "bounds-sup-inf",       "name": "Bounds, supremum & infimum",    "lecture": 4,  "prereqs": ["ordering-relations"]},
+  {"id": "algebraic-structures", "name": "Algebras, groups, neutral element", "lecture": 5, "prereqs": ["set-operations"]},
+  {"id": "rings-fields",         "name": "Rings & fields",                "lecture": 6,  "prereqs": ["algebraic-structures"]},
+  {"id": "boolean-algebra",      "name": "Boolean algebra ⟨P(A),∪,∩,¬⟩",  "lecture": 6,  "prereqs": ["set-identities", "algebraic-structures"]},
+  {"id": "cardinality",          "name": "Equinumerous sets, cardinal numbers", "lecture": 7, "prereqs": ["functions-rel"]},
+  {"id": "countability",         "name": "Countable & uncountable sets",  "lecture": 7,  "prereqs": ["cardinality"]},
+  {"id": "concept-logic",        "name": "Logic of concepts (denotation/connotation)", "lecture": 12, "prereqs": ["statement"]},
+  {"id": "predicate",            "name": "Predicates & truth sets",       "lecture": 13, "prereqs": ["statement"]},
+  {"id": "quantifiers",          "name": "Quantifiers ∀ ∃",               "lecture": 13, "prereqs": ["predicate", "logical-connectives"]},
+  {"id": "fuzzy-sets",           "name": "Fuzzy sets & fuzzy logic",      "lecture": 15, "prereqs": ["set-operations"]}
 ]}
