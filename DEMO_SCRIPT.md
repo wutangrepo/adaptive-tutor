@@ -40,13 +40,16 @@ uvicorn app.main:app --reload
 - Click **"view mastery dashboard"**: *"Every concept, color-coded. Red is
   where the tutor will take me next."*
 
-## 3. The AI second opinion (1 min) — student window
+## 3. AI feedback on reasoning (1 min) — student window
 
-- After any answer, open **"🤖 Want an AI second opinion?"**
+- After any answer, open **"🧠 Show your reasoning — get AI feedback"**
+- *"The answer itself was graded deterministically — a real logic engine, no
+  AI needed. But the engine can't judge *why* an answer is right. So the
+  student can submit their reasoning, and a local LLM — qwen3.5 running
+  offline — assesses how sound the explanation is, criterion by criterion,
+  with a confidence score."*
 - Type a short reasoning sentence, submit.
-- *"The student's answer goes to a local LLM — here qwen3.5 running offline —
-  which drafts a rubric-based grade with per-criterion points and a confidence
-  score. Notice where it lands: the **professor's queue**, not the student's
+- *"Notice where it lands: the **professor's queue**, not the student's
   screen. Low-confidence or malformed drafts are flagged 'needs_human'
   automatically."*
 

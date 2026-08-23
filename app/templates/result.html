@@ -11,14 +11,19 @@
   <p><small>{{ item.stem }}</small></p>
 
   <details style="margin:.8rem 0">
-    <summary>🤖 Want an AI second opinion on your reasoning?</summary>
+    <summary>🧠 Show your reasoning — get AI feedback</summary>
+    <p style="font-size:.85rem;color:#555">
+      Your answer is already graded above. This is about the <b>why</b>:
+      explain your thinking and the AI tutor will assess how sound it is.
+      Its feedback is a draft — your professor reviews it before it counts.
+    </p>
     <p>Your answer: <b>{{ student_answer }}</b></p>
     <form method="post" action="/assess/{{ item.id }}">
       <input type="hidden" name="sid" value="{{ sid }}">
       <input type="hidden" name="picked_answer" value="{{ student_answer }}">
       <textarea name="answer_text" rows="3" style="width:100%"
-                placeholder="explain how you arrived at your answer…"></textarea>
-      <br><button type="submit">Ask AI to draft a grade (goes to professor review)</button>
+                placeholder="explain WHY your answer is right — which rule or law did you use?"></textarea>
+      <br><button type="submit">Submit reasoning for AI feedback</button>
     </form>
   </details>
 

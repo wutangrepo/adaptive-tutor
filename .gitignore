@@ -14,3 +14,6 @@ extracted_*.txt
 
 # editor
 .vscode/
+
+# demo
+DEMO_SCRIPT.md

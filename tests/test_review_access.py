@@ -56,7 +56,7 @@ def test_review_hides_console_from_students(client):
     r = client.get("/review")
     assert r.status_code == 200
     assert "professor key" in r.text          # login form shown
-    assert "Grade drafts" not in r.text       # console hidden
+    assert "reasoning-feedback" not in r.text  # console hidden
 
 
 def test_wrong_key_denied(client):
@@ -72,7 +72,7 @@ def test_correct_key_grants_access(client):
     assert r.status_code == 303
     assert client.cookies.get(main.COOKIE_NAME)
     page = client.get("/review")
-    assert "Grade drafts" in page.text
+    assert "reasoning-feedback" in page.text
     assert "Log out" in page.text
 
 

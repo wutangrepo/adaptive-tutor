@@ -132,10 +132,16 @@ def dashboard(request: Request, sid: str = "demo"):
 # --------------------------------------------------------------------------
 
 def rubric_for(item):
-    """Two-criterion rubric: correct answer (2 pts) + justification (1 pt)."""
+    """Rubric for reasoning feedback.
+
+    The answer itself is already graded deterministically -- the AI only
+    assesses the *explanation*: is it sound, and does it engage the concept?
+    """
     return [
-        {"criterion": f"answers the question correctly: {item.stem[:120]}", "points": 2},
-        {"criterion": "justifies the answer with sound reasoning", "points": 1},
+        {"criterion": f"the reasoning is logically sound for this question: "
+                      f"{item.stem[:100]}", "points": 2},
+        {"criterion": "the reasoning cites the relevant rule or concept",
+         "points": 1},
     ]
 
 
@@ -205,7 +211,8 @@ async def assess_draft(item_id: str, sid: str = Form("demo"),
         breakdown, total, max_pts = d["criteria"], d["total"], d["max"]
         confidence = d["confidence"]
         status = "pending" if confidence >= CONFIDENCE_GATE else "needs_human"
-        note = f"AI grade drafted ({status}, {total}/{max_pts}) - the professor will review it"
+        note = (f"AI feedback drafted ({status}, {total}/{max_pts}) - "
+                f"the professor will review it")
     except llm.BadGrade as e:
         # The model broke the rules -- keep the submission, flag it for a human.
         breakdown = {"error": str(e)}
