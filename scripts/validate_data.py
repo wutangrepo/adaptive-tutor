@@ -55,14 +55,24 @@ def derive(rec):
         return proplog.are_equivalent(p["formula1"], p["formula2"])
     if rec["type"] == "mcq":
         return p["options"][p["answer_index"]]
-    raise ValueError(rec["type"])
+    return _NO_DERIVATION  # LLM/rubric-graded types: nothing to derive here
 
 
+_NO_DERIVATION = object()  # sentinel for types without deterministic answers
+
+unknown_types = set()
 for it in items:
     try:
-        derive(it)
+        got = derive(it)
+        if got is _NO_DERIVATION:
+            unknown_types.add(it["type"])
     except Exception as e:  # noqa: BLE001
         errors.append(f"{it['id']}: cannot derive expected value ({e})")
+
+if unknown_types:
+    print(f"note: {sum(1 for i in items if i['type'] in unknown_types)} item(s) "
+          f"of non-deterministic type(s) {sorted(unknown_types)} -- they are "
+          f"graded by the AI rubric flow, not by derive(); verify manually")
 
 print(f"{len(items)} items, {len(concepts)} concepts, "
       f"{len(covered)} concepts covered by items")

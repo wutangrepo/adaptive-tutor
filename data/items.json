@@ -87,7 +87,7 @@
    "grading_mode": "deterministic", "concepts": ["cartesian-product"],
    "difficulty": 2,
    "stem": "When does A × B = B × A hold?",
-   "payload": {"options": ["Always, × is commutative", "Never", "Only when A = B (or both are empty)", "Whenever A ⊆ B"], "answer_index": 2}},
+   "payload": {"options": ["Always, × is commutative", "Never", "Only when A = B, or when either set is empty", "Whenever A ⊆ B"], "answer_index": 2}},
 
   {"id": "ex2-7-count", "source": "Exercises 2, Ex 7", "type": "mcq",
    "grading_mode": "deterministic", "concepts": ["binary-relations"],
@@ -105,7 +105,7 @@
    "grading_mode": "deterministic", "concepts": ["functions-rel"],
    "difficulty": 2,
    "stem": "Which of these relations r ⊆ R × R is a function from R to R?",
-   "payload": {"options": ["x r y : x² = y", "x r y : x = y²", "x r y : y = eˣ", "x r y : |x − y| = 1"], "answer_index": 2}},
+   "payload": {"options": ["x r y : x² + y² = 1", "x r y : x = y²", "x r y : y = eˣ", "x r y : |x − y| = 1"], "answer_index": 2}},
 
   {"id": "ex3-8-chi", "source": "Exercises 3, Ex 8(d)", "type": "mcq",
    "grading_mode": "deterministic", "concepts": ["functions-rel"],

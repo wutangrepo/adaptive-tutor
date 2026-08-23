@@ -104,7 +104,8 @@ async def answer(request: Request, item_id: str, sid: str = "demo",
             db.commit()
     return templates.TemplateResponse(request, "result.html",
                                       {"item": item, "correct": ok, "expected": expected,
-                                       "error": error, "sid": sid})
+                                       "error": error, "sid": sid,
+                                       "student_answer": student_answer})
 
 
 @app.get("/dashboard")
@@ -176,12 +177,16 @@ def review_logout():
 
 @app.post("/assess/{item_id}")
 async def assess_draft(item_id: str, sid: str = Form("demo"),
-                       answer_text: str = Form(...)):
+                       answer_text: str = Form(...),
+                       picked_answer: str = Form("")):
     """Draft an AI grade for a free-text answer; low confidence => needs_human."""
     with SessionLocal() as db:
         item = db.get(Item, item_id)
     if item is None:
         return RedirectResponse("/review?msg=unknown+item", status_code=303)
+    if picked_answer:
+        # Give the model the student's concrete choice as grading context.
+        answer_text = f"[student's selected answer: {picked_answer}] {answer_text}"
     breakdown, total, max_pts, confidence = None, None, None, None
     status = "needs_human"
     note = ""

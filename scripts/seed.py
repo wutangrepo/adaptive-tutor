@@ -21,18 +21,30 @@ def derive_expected(rec):
         return proplog.are_equivalent(p["formula1"], p["formula2"])
     if rec["type"] == "mcq":
         return p["options"][p["answer_index"]]
-    return None
+    return _SKIP  # LLM/rubric-graded type: seed it, but nothing to derive
+
+
+_SKIP = object()
+
 
 def main():
     Base.metadata.create_all(engine)
     items = json.loads((DATA / "items.json").read_text(encoding="utf-8"))
     with SessionLocal() as db:
         db.query(Item).delete()
+        skipped = 0
         for rec in items:
-            print(f"  {rec['id']:>10}  expected = {derive_expected(rec)}")
+            expected = derive_expected(rec)
+            if expected is _SKIP:
+                skipped += 1
+                print(f"  {rec['id']:>10}  expected = (LLM/rubric-graded)")
+            else:
+                print(f"  {rec['id']:>10}  expected = {expected}")
             db.add(Item(**rec))
         db.commit()
-    print(f"seeded {len(items)} items")
+    print(f"seeded {len(items)} items"
+          + (f" ({skipped} non-deterministic, graded via AI rubric flow)"
+             if skipped else ""))
 
 
 if __name__ == "__main__":

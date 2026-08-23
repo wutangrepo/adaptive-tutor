@@ -12,8 +12,10 @@
 
   <details style="margin:.8rem 0">
     <summary>🤖 Want an AI second opinion on your reasoning?</summary>
-    <form method="post" action="/assess/{{ item.id }}?sid={{ sid }}">
+    <p>Your answer: <b>{{ student_answer }}</b></p>
+    <form method="post" action="/assess/{{ item.id }}">
       <input type="hidden" name="sid" value="{{ sid }}">
+      <input type="hidden" name="picked_answer" value="{{ student_answer }}">
       <textarea name="answer_text" rows="3" style="width:100%"
                 placeholder="explain how you arrived at your answer…"></textarea>
       <br><button type="submit">Ask AI to draft a grade (goes to professor review)</button>
