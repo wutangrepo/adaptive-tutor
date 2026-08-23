@@ -68,7 +68,8 @@ def load_state(sid: str):
 
 
 @app.get("/")
-def quiz(request: Request, sid: str = "demo", mode: str = "adaptive"):
+def quiz(request: Request, sid: str = "demo", mode: str = "adaptive",
+         msg: str = ""):
     st = load_state(sid)
     if mode == "adaptive" and adaptive.should_stop(st.mastery, st.n, cap=len(st.items)):
         return templates.TemplateResponse(request, "done.html", {"sid": sid, "n": st.n})
@@ -85,7 +86,8 @@ def quiz(request: Request, sid: str = "demo", mode: str = "adaptive"):
     hint = hint_row.text if hint_row else None
     return templates.TemplateResponse(request, "quiz.html",
                                       {"item": item, "why": why, "sid": sid, "n": st.n,
-                                       "concept_mastery": st.mastery, "hint": hint})
+                                       "concept_mastery": st.mastery, "hint": hint,
+                                       "msg": msg})
 
 
 @app.post("/answer/{item_id}")
@@ -102,10 +104,18 @@ async def answer(request: Request, item_id: str, sid: str = "demo",
         with SessionLocal() as db:
             db.add(Attempt(learner_id=sid, item_id=item_id, correct=int(ok)))
             db.commit()
+    # MCQ forms submit the option *index*; resolve it to the option text so
+    # students (and the AI grader) see "A ∧ ¬B", not "1".
+    answer_display = student_answer
+    if item is not None and item.type == "mcq":
+        try:
+            answer_display = item.payload["options"][int(student_answer)]
+        except (KeyError, ValueError, IndexError):
+            pass
     return templates.TemplateResponse(request, "result.html",
                                       {"item": item, "correct": ok, "expected": expected,
                                        "error": error, "sid": sid,
-                                       "student_answer": student_answer})
+                                       "student_answer": answer_display})
 
 
 @app.get("/dashboard")
@@ -183,7 +193,7 @@ async def assess_draft(item_id: str, sid: str = Form("demo"),
     with SessionLocal() as db:
         item = db.get(Item, item_id)
     if item is None:
-        return RedirectResponse("/review?msg=unknown+item", status_code=303)
+        return RedirectResponse(f"/?sid={sid}&msg=unknown+item", status_code=303)
     if picked_answer:
         # Give the model the student's concrete choice as grading context.
         answer_text = f"[student's selected answer: {picked_answer}] {answer_text}"
@@ -195,16 +205,17 @@ async def assess_draft(item_id: str, sid: str = Form("demo"),
         breakdown, total, max_pts = d["criteria"], d["total"], d["max"]
         confidence = d["confidence"]
         status = "pending" if confidence >= CONFIDENCE_GATE else "needs_human"
-        note = f"AI grade drafted ({status}, {total}/{max_pts})"
+        note = f"AI grade drafted ({status}, {total}/{max_pts}) - the professor will review it"
     except llm.BadGrade as e:
         # The model broke the rules -- keep the submission, flag it for a human.
         breakdown = {"error": str(e)}
-        note = f"AI draft rejected ({e}) - sent to human review"
+        note = "AI draft was malformed - sent to the professor for manual grading"
     except llm.ProviderDown as e:
         with SessionLocal() as db:
             _audit(db, "system", "provider_down", item_id, {"error": str(e)})
             db.commit()
-        return RedirectResponse("/review?msg=AI+provider+unavailable", status_code=303)
+        return RedirectResponse(f"/?sid={sid}&msg=AI+tutor+unavailable+right+now",
+                                status_code=303)
     with SessionLocal() as db:
         db.add(Assessment(item_id=item_id, learner_id=sid, answer=answer_text,
                           status=status, ai_breakdown=breakdown, ai_total=total,
@@ -212,7 +223,7 @@ async def assess_draft(item_id: str, sid: str = Form("demo"),
         _audit(db, llm_provider.name, "grade_drafted", item_id,
                {"status": status, "total": total, "confidence": confidence})
         db.commit()
-    return RedirectResponse(f"/review?msg={quote(note)}", status_code=303)
+    return RedirectResponse(f"/?sid={sid}&msg={quote(note)}", status_code=303)
 
 
 @app.post("/hints/draft/{item_id}")

@@ -92,14 +92,6 @@
     <p><small>Showing the latest {{ recent_attempts|length }} attempt(s).</small></p>
   {% endif %}
 
-  <h3>Draft an AI grade manually</h3>
-  <form method="post" action="/assess/ex9-9-6">
-    <label>Learner id: <input name="sid" value="demo"></label><br>
-    <textarea name="answer_text" rows="3" style="width:100%"
-              placeholder="student's free-text answer…"></textarea>
-    <button type="submit">Ask AI for a grade draft</button>
-  </form>
-
   {% endif %}
   <p><a href="/?sid=demo">← back to the quiz</a></p>
 </body></html>

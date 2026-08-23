@@ -2,6 +2,7 @@
 <html>
 <head><meta charset="utf-8"><title>Adaptive Tutor</title></head>
 <body style="max-width:640px;margin:2rem auto;font-family:sans-serif">
+  {% if msg %}<p style="background:#e8f5e9;border:1px solid #a5d6a7;border-radius:6px;padding:.5rem">📨 {{ msg }}</p>{% endif %}
   <h2>Question {{ n + 1 }}</h2>
   <p><small>[{{ item.type }}] {{ item.source }}</small></p>
   <p>{{ item.stem }}</p>

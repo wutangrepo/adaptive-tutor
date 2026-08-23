@@ -29,7 +29,10 @@ class StubProvider:
 
     def validate_grade(self, raw: str, rubric: list) -> dict:
         from app.llm import _extract_json
-        return _extract_json(raw)
+        d = _extract_json(raw)
+        d["total"] = sum(c["awarded"] for c in d["criteria"])
+        d["max"] = sum(s["points"] for s in rubric)
+        return d
 
 
 @pytest.fixture()
@@ -130,3 +133,30 @@ def test_professor_sees_learner_results(client):
 def test_student_does_not_see_results_table(client):
     page = client.get("/review")     # unauthenticated -> login form only
     assert "Recent learner answers" not in page.text
+
+
+def test_mcq_answer_shown_as_text_not_index(client):
+    page = client.get("/?sid=stu2")
+    item_id = re.search(r"/answer/([\w-]+)", page.text).group(1)
+    r = client.post(f"/answer/{item_id}?sid=stu2",
+                    data={"student_answer": "0"})
+    assert "Your answer:" in r.text
+    assert "answer: <b>a</b>" in r.text          # option text, not "0"
+
+
+def test_second_opinion_stays_in_student_flow(client):
+    page = client.get("/?sid=stu3")
+    item_id = re.search(r"/answer/([\w-]+)", page.text).group(1)
+    client.post(f"/answer/{item_id}?sid=stu3", data={"student_answer": "0"})
+    r = client.post(f"/assess/{item_id}",
+                    data={"sid": "stu3", "picked_answer": "a",
+                          "answer_text": "because the option matches."},
+                    follow_redirects=False)
+    # back to the student's quiz, never into the professor console
+    assert r.status_code == 303
+    assert r.headers["location"].startswith("/?sid=stu3")
+    with main.SessionLocal() as db:
+        a = db.query(Assessment).filter_by(learner_id="stu3").first()
+    assert a is not None
+    # the AI grading context carries the readable option text
+    assert "selected answer: a]" in a.answer
