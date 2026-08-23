@@ -74,6 +74,24 @@
     </div>
   {% endfor %}
 
+  <h3>Recent learner answers</h3>
+  {% if not recent_attempts %}<p><i>No quiz attempts yet.</i></p>{% endif %}
+  {% if recent_attempts %}
+    <table style="width:100%;border-collapse:collapse;font-size:.9rem">
+      <tr style="text-align:left;border-bottom:1px solid #ccc">
+        <th style="padding:.3rem">learner</th><th>question</th><th>result</th>
+      </tr>
+      {% for a, item in recent_attempts %}
+        <tr>
+          <td style="padding:.3rem">{{ a.learner_id }}</td>
+          <td>{{ item.id }} — {{ item.stem[:50] }}</td>
+          <td>{% if a.correct %}✅ correct{% else %}❌ wrong{% endif %}</td>
+        </tr>
+      {% endfor %}
+    </table>
+    <p><small>Showing the latest {{ recent_attempts|length }} attempt(s).</small></p>
+  {% endif %}
+
   <h3>Draft an AI grade manually</h3>
   <form method="post" action="/assess/ex9-9-6">
     <label>Learner id: <input name="sid" value="demo"></label><br>

@@ -1,4 +1,6 @@
 """Professor/student separation tests (Option A shared key + cookie)."""
+import re
+
 import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
@@ -40,7 +42,7 @@ def client(monkeypatch, tmp_path):
     monkeypatch.setattr(main, "PROFESSOR_KEY", "test-key")
     monkeypatch.setattr(main, "llm_provider", StubProvider())
     with S() as db:
-        db.add(Item(id="t1", type="mcq", concepts=[], difficulty=1,
+        db.add(Item(id="t1", type="mcq", concepts=["test-concept"], difficulty=1,
                     stem="stub question",
                     payload={"options": ["a", "b"], "answer_index": 0}))
         db.commit()
@@ -110,3 +112,21 @@ def test_logout_revokes_access(client):
     client.post("/review/logout")
     page = client.get("/review")
     assert "professor key" in page.text
+
+
+def test_professor_sees_learner_results(client):
+    # a student answers a question through the public flow
+    page = client.get("/?sid=stu1")
+    item_id = re.search(r"/answer/([\w-]+)", page.text).group(1)
+    client.post(f"/answer/{item_id}?sid=stu1", data={"student_answer": "0"})
+    # professor logs in and sees the attempt listed
+    client.post("/review/login", data={"key": "test-key"})
+    r = client.get("/review")
+    assert "Recent learner answers" in r.text
+    assert "stu1" in r.text
+    assert ("correct" in r.text) or ("wrong" in r.text)
+
+
+def test_student_does_not_see_results_table(client):
+    page = client.get("/review")     # unauthenticated -> login form only
+    assert "Recent learner answers" not in page.text

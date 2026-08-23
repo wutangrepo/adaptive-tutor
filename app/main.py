@@ -135,7 +135,7 @@ def _audit(db, actor, action, target, detail=None):
 @app.get("/review")
 def review(request: Request, msg: str = ""):
     authorized = _is_professor(request)
-    assessments = hints = items = []
+    assessments, hints, items, attempts = [], [], [], []
     if authorized:
         with SessionLocal() as db:
             assessments = (db.query(Assessment, Item)
@@ -146,10 +146,14 @@ def review(request: Request, msg: str = ""):
                      .join(Item, HintDraft.item_id == Item.id)
                      .filter(HintDraft.status == "draft")
                      .order_by(HintDraft.id.desc()).all())
+            attempts = (db.query(Attempt, Item)
+                        .join(Item, Attempt.item_id == Item.id)
+                        .order_by(Attempt.id.desc()).limit(20).all())
             items = db.query(Item).order_by(Item.id).all()
     return templates.TemplateResponse(request, "review.html", {
         "authorized": authorized,
         "assessments": assessments, "hints": hints, "items": items,
+        "recent_attempts": attempts,
         "msg": msg, "gate": CONFIDENCE_GATE})
 
 
