@@ -43,17 +43,21 @@
           {% endfor %}
         </ul>
       {% elif a.ai_breakdown and a.ai_breakdown.error %}
-        <p style="color:#b00;font-size:.85rem">⚠️ validator: {{ a.ai_breakdown.error }}</p>
+        <p style="color:#b00;font-size:.85rem">⚠️ The AI could not produce a valid
+          grade for this submission ({{ a.ai_breakdown.error }}) — please grade
+          it yourself below.</p>
+      {% endif %}
+      {% if a.ai_total is not none %}
+        <form method="post" action="/review/assessment/{{ a.id }}" style="display:inline">
+          <input type="hidden" name="action" value="approved">
+          <button type="submit">✅ Approve {{ a.ai_total }}/{{ a.ai_max }}</button>
+        </form>
       {% endif %}
       <form method="post" action="/review/assessment/{{ a.id }}" style="display:inline">
-        <input type="hidden" name="action" value="approved">
-        <button type="submit">✅ Approve {{ a.ai_total }}/{{ a.ai_max }}</button>
-      </form>
-      <form method="post" action="/review/assessment/{{ a.id }}" style="display:inline">
         <input type="hidden" name="action" value="overridden">
-        <label>Override score: <input type="number" name="final_total" min="0"
+        <label>Grade manually: <input type="number" name="final_total" min="0"
                value="{{ a.ai_total if a.ai_total is not none else 0 }}"></label>
-        <button type="submit">✏️ Override</button>
+        <button type="submit">{{ "✏️ Override" if a.ai_total is not none else "📝 Save grade" }}</button>
       </form>
     </div>
   {% endfor %}
