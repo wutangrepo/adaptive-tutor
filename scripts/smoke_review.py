@@ -5,12 +5,17 @@ Requires Ollama running -- makes two real qwen calls.
 import asyncio
 import sys
 from pathlib import Path
+from types import SimpleNamespace
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from app.db import SessionLocal  # noqa: E402
-from app.main import assess_draft, hint_draft, review_assessment, review_hint  # noqa: E402
+from app.main import (COOKIE_NAME, _professor_token, assess_draft,  # noqa: E402
+                      hint_draft, review_assessment, review_hint)
 from app.models import Assessment, AuditLog, HintDraft  # noqa: E402
+
+# professor-authorized request shim for calling the guarded routes directly
+PROF = SimpleNamespace(cookies={COOKIE_NAME: _professor_token()})
 
 results = []
 
@@ -26,7 +31,7 @@ def latest_hint():
 
 
 # 1) draft a real hint via qwen
-r = hint_draft("ex9-8-1")
+r = hint_draft("ex9-8-1", PROF)
 with SessionLocal() as db:
     h = db.query(HintDraft).order_by(HintDraft.id.desc()).first()
     hid, hstatus, htext = h.id, h.status, h.text
@@ -35,13 +40,13 @@ check("hint drafted by live model",
       repr((htext or "")[:70]) if h else "")
 
 # 2) professor approves the hint
-review_hint(hid, action="approved")
+review_hint(hid, PROF, action="approved")
 with SessionLocal() as db:
     status_now = db.get(HintDraft, hid).status
 check("hint approved via FSM", status_now == "approved")
 
 # 3) illegal transition rejected (approved -> rejected must fail)
-review_hint(hid, action="rejected")
+review_hint(hid, PROF, action="rejected")
 with SessionLocal() as db:
     status_now = db.get(HintDraft, hid).status
 check("illegal transition blocked", status_now == "approved")
@@ -65,7 +70,7 @@ check("AI grade drafted into Assessment", assess_ok,
 
 # 5) professor overrides the grade with a custom score
 if assess_ok:
-    review_assessment(aid, action="overridden", final_total=1)
+    review_assessment(aid, PROF, action="overridden", final_total=1)
     with SessionLocal() as db:
         a2 = db.get(Assessment, aid)
     check("grade overridden via FSM",

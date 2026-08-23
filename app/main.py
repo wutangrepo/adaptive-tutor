@@ -1,4 +1,7 @@
+import hashlib
+import hmac
 import json
+import os
 from pathlib import Path
 from types import SimpleNamespace
 from urllib.parse import quote
@@ -18,6 +21,27 @@ DATA = Path(__file__).resolve().parent.parent / "data"
 CONFIDENCE_GATE = 0.6
 
 llm_provider = llm.OllamaProvider()
+
+# ---------------------------------------------------------------------------
+# Professor access control (Option A: shared key + signed cookie).
+# One dependency-style check (_is_professor) guards every professor route, so
+# swapping in real user accounts later touches exactly this block.
+# Set PROFESSOR_KEY in the environment for anything beyond a demo.
+# ---------------------------------------------------------------------------
+PROFESSOR_KEY = os.environ.get("PROFESSOR_KEY", "professor")
+COOKIE_NAME = "professor_token"
+
+
+def _professor_token() -> str:
+    """Cookie value derived from the key; changing the key voids all sessions."""
+    return hmac.new(PROFESSOR_KEY.encode(), b"professor-session",
+                    hashlib.sha256).hexdigest()
+
+
+def _is_professor(request: Request) -> bool:
+    expected = _professor_token()
+    got = request.cookies.get(COOKIE_NAME, "")
+    return hmac.compare_digest(expected, got)
 
 Base.metadata.create_all(bind=engine)
 
@@ -110,19 +134,40 @@ def _audit(db, actor, action, target, detail=None):
 
 @app.get("/review")
 def review(request: Request, msg: str = ""):
-    with SessionLocal() as db:
-        assessments = (db.query(Assessment, Item)
-                       .join(Item, Assessment.item_id == Item.id)
-                       .filter(Assessment.status.in_(("pending", "needs_human")))
-                       .order_by(Assessment.id.desc()).all())
-        hints = (db.query(HintDraft, Item)
-                 .join(Item, HintDraft.item_id == Item.id)
-                 .filter(HintDraft.status == "draft")
-                 .order_by(HintDraft.id.desc()).all())
-        items = db.query(Item).order_by(Item.id).all()
+    authorized = _is_professor(request)
+    assessments = hints = items = []
+    if authorized:
+        with SessionLocal() as db:
+            assessments = (db.query(Assessment, Item)
+                           .join(Item, Assessment.item_id == Item.id)
+                           .filter(Assessment.status.in_(("pending", "needs_human")))
+                           .order_by(Assessment.id.desc()).all())
+            hints = (db.query(HintDraft, Item)
+                     .join(Item, HintDraft.item_id == Item.id)
+                     .filter(HintDraft.status == "draft")
+                     .order_by(HintDraft.id.desc()).all())
+            items = db.query(Item).order_by(Item.id).all()
     return templates.TemplateResponse(request, "review.html", {
+        "authorized": authorized,
         "assessments": assessments, "hints": hints, "items": items,
         "msg": msg, "gate": CONFIDENCE_GATE})
+
+
+@app.post("/review/login")
+def review_login(request: Request, key: str = Form("")):
+    if hmac.compare_digest(key.strip(), PROFESSOR_KEY):
+        resp = RedirectResponse("/review", status_code=303)
+        resp.set_cookie(COOKIE_NAME, _professor_token(), httponly=True,
+                        samesite="lax")
+        return resp
+    return RedirectResponse("/review?msg=wrong+key", status_code=303)
+
+
+@app.post("/review/logout")
+def review_logout():
+    resp = RedirectResponse("/review", status_code=303)
+    resp.delete_cookie(COOKIE_NAME)
+    return resp
 
 
 @app.post("/assess/{item_id}")
@@ -162,8 +207,11 @@ async def assess_draft(item_id: str, sid: str = Form("demo"),
 
 
 @app.post("/hints/draft/{item_id}")
-def hint_draft(item_id: str):
-    """Draft a hint for an item; always lands as 'draft' pending approval."""
+def hint_draft(item_id: str, request: Request):
+    """Draft a hint for an item; professor-only; lands as 'draft' pending approval."""
+    if not _is_professor(request):
+        return RedirectResponse("/review?msg=professor+login+required",
+                                status_code=303)
     with SessionLocal() as db:
         item = db.get(Item, item_id)
     if item is None:
@@ -183,9 +231,13 @@ def hint_draft(item_id: str):
 
 
 @app.post("/review/assessment/{assessment_id}")
-def review_assessment(assessment_id: int, action: str = Form(...),
+def review_assessment(assessment_id: int, request: Request,
+                      action: str = Form(...),
                       final_total: int | None = Form(None)):
     """Professor decision on an AI-drafted grade (approved / overridden)."""
+    if not _is_professor(request):
+        return RedirectResponse("/review?msg=professor+login+required",
+                                status_code=303)
     with SessionLocal() as db:
         a = db.get(Assessment, assessment_id)
         if a is None:
@@ -205,8 +257,11 @@ def review_assessment(assessment_id: int, action: str = Form(...),
 
 
 @app.post("/review/hint/{hint_id}")
-def review_hint(hint_id: int, action: str = Form(...)):
+def review_hint(hint_id: int, request: Request, action: str = Form(...)):
     """Professor decision on a draft hint (approved / rejected)."""
+    if not _is_professor(request):
+        return RedirectResponse("/review?msg=professor+login+required",
+                                status_code=303)
     with SessionLocal() as db:
         h = db.get(HintDraft, hint_id)
         if h is None:
@@ -221,3 +276,9 @@ def review_hint(hint_id: int, action: str = Form(...)):
         _audit(db, "professor", f"hint_{new_status}", f"hint:{h.id}")
         db.commit()
     return RedirectResponse(f"/review?msg=hint+{new_status}", status_code=303)
+
+
+@app.post("/review/draft-hint")
+def review_draft_hint(request: Request, item_id: str = Form(...)):
+    """Professor console entry point for AI hint drafting."""
+    return hint_draft(item_id, request)
