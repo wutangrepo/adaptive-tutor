@@ -27,13 +27,14 @@ $env:OLLAMA_MODEL="qwen3.5:4b"; $env:OLLAMA_BASE="http://localhost:11434"
 ## Project layout
 ```
 app/
-  main.py      — routes (quiz/answer/dashboard/review/health), auto-seed, cached domain_map
-  models.py    — Item / Attempt / HintDraft / AuditLog
-  db.py        — engine (DATABASE_URL) + SessionLocal
-  proplog.py   — parse/evaluate/is_tautology/are_equivalent (lru_cache)
+  main.py      — routes (quiz/answer/dashboard/review/health), lifespan, cached domain_map
+  seed.py      — ensure_db()/seed_if_empty() (isolated seeding concern)
+  db.py        — DeclarativeBase + engine (DATABASE_URL, pool_pre_ping)
+  models.py    — Item / Attempt / HintDraft / AuditLog (constraints + indexes)
+  proplog.py   — parse/evaluate/is_tautology/are_equivalent (lru_cache 512)
   grading.py   — deterministic grade()
-  adaptive.py  — init/update/select/explain/should_stop
-  llm.py       — OllamaProvider (Session pooling, OLLAMA_* env)
+  adaptive.py  — init/update/select/explain/should_stop (EMA K=0.25)
+  llm.py       — OllamaProvider (Session pooling, OLLAMA_* env, 60s timeout)
   approval.py  — hint_transition FSM
   templates/   — quiz / result / dashboard / done / review
 data/
@@ -51,5 +52,7 @@ No free-text rubric grading — keeps the core honest and fully deterministic; L
 - `GET /health` → `{"status":"ok"}`
 - `audit_log` records `hint_drafted` / `hint_approved` / `hint_rejected` / `provider_down` with actor/target/detail.
 
-## Demo
-See `DEMO_SCRIPT.md` (≈5 min).
+## Notes (26/08/2026)
+- No `scripts/` folder — seeding is `app/seed.py` + `lifespan` auto-seed on `app.db` first run (`python -m app.seed` for manual).
+- Deprecated APIs fixed: `@app.on_event` → `lifespan`, `declarative_base()` → `DeclarativeBase`, `future=True` removed.
+- `DEMO_SCRIPT.md` removed — see Quick start + How it works above.
