@@ -4,6 +4,7 @@ import json
 import logging
 import os
 import warnings
+from contextlib import asynccontextmanager
 from functools import lru_cache
 from pathlib import Path
 from types import SimpleNamespace
@@ -15,8 +16,9 @@ from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 
 from . import adaptive, approval, grading, llm
-from .db import Base, SessionLocal, engine
+from .db import SessionLocal
 from .models import Attempt, AuditLog, HintDraft, Item
+from .seed import ensure_db
 
 DATA = Path(__file__).resolve().parent.parent / "data"
 log = logging.getLogger(__name__)
@@ -52,15 +54,19 @@ def get_db():
 
 
 # ------------------------------------------------------------
-# App + startup
+# App + lifespan (replaces deprecated @app.on_event)
 # ------------------------------------------------------------
-app = FastAPI(title="Adaptive Tutor", version="2.1")
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    ensure_db()
+    yield
+
+
+app = FastAPI(title="Adaptive Tutor", version="2.2", lifespan=lifespan)
 templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
 
-
-@app.on_event("startup")
-def _create_tables():
-    Base.metadata.create_all(bind=engine)
+# Fallback for TestClient without lifespan context + `python -m app.main` bare import
+ensure_db()
 
 
 @lru_cache(maxsize=1)
