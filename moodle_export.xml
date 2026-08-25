@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <question type="category">
+    <category><text>$course$/top/Adaptive Tutor - Logic and Set Theory</text></category>
+    <info format="html"><text></text></info>
+  </question>
+  <question type="shortanswer">
+    <name><text>ex11-4</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 11, Ex 4 | logical-function, function-evaluation | difficulty 2</small></p><p>Specify the value of f(x1, x2) = (x1 ⊕ x2) ⊕ (x1 ∨ x2) if x1 = 1, x2 = 0. (answer 0 or 1)</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><usecase>0</usecase>
+    <answer fraction="100" format="moodle_auto_format"><text>0</text><feedback format="html"><text>Correct.</text></feedback></answer>
+    <answer fraction="0" format="moodle_auto_format"><text>1</text><feedback format="html"><text>Incorrect. Expected 0.</text></feedback></answer>
+  </question>
+  <question type="shortanswer">
+    <name><text>ex11-5</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 11, Ex 5 | logical-function, function-evaluation | difficulty 2</small></p><p>Specify the value of f(x1, x2) = (x1 ⊕ x2) ∧ (¬x1 ⊕ x2) if x1 = 1, x2 = 1. (answer 0 or 1)</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><usecase>0</usecase>
+    <answer fraction="100" format="moodle_auto_format"><text>0</text><feedback format="html"><text>Correct.</text></feedback></answer>
+    <answer fraction="0" format="moodle_auto_format"><text>1</text><feedback format="html"><text>Incorrect. Expected 0.</text></feedback></answer>
+  </question>
+  <question type="shortanswer">
+    <name><text>ex11-6</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 11, Ex 6 | logical-function, function-evaluation | difficulty 3</small></p><p>Specify the value of f(x1, x2, x3) = (x1 ⊕ x2) ∧ (x1 ⊕ x3) ∧ (¬x2 ∨ ¬x3) if x1 = 1, x2 = 1, x3 = 0. (answer 0 or 1)</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><usecase>0</usecase>
+    <answer fraction="100" format="moodle_auto_format"><text>0</text><feedback format="html"><text>Correct.</text></feedback></answer>
+    <answer fraction="0" format="moodle_auto_format"><text>1</text><feedback format="html"><text>Incorrect. Expected 0.</text></feedback></answer>
+  </question>
+  <question type="truefalse">
+    <name><text>ex9-8-1</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 9, Ex 8(1) | tautology, zero-one-method | difficulty 2</small></p><p>Is (A ∧ B) → A a tautology? (yes/no)</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden>
+    <answer fraction="100" format="moodle_auto_format"><text>true</text><feedback format="html"><text>Correct - it is a tautology.</text></feedback></answer>
+    <answer fraction="0" format="moodle_auto_format"><text>false</text><feedback format="html"><text>Incorrect.</text></feedback></answer>
+  </question>
+  <question type="truefalse">
+    <name><text>ex9-8-5</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 9, Ex 8(5) | tautology, zero-one-method | difficulty 2</small></p><p>Is ¬(A → B) → ¬B a tautology? (yes/no)</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden>
+    <answer fraction="100" format="moodle_auto_format"><text>true</text><feedback format="html"><text>Correct - it is a tautology.</text></feedback></answer>
+    <answer fraction="0" format="moodle_auto_format"><text>false</text><feedback format="html"><text>Incorrect.</text></feedback></answer>
+  </question>
+  <question type="truefalse">
+    <name><text>ex9-9-6</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 9, Ex 9(6) | logical-equivalence | difficulty 2</small></p><p>Are ¬(B ∧ C) and ¬B ∨ ¬C logically equivalent? (yes/no)</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden>
+    <answer fraction="100" format="moodle_auto_format"><text>true</text><feedback format="html"><text>Correct - they are equivalent.</text></feedback></answer>
+    <answer fraction="0" format="moodle_auto_format"><text>false</text><feedback format="html"><text>Incorrect.</text></feedback></answer>
+  </question>
+  <question type="truefalse">
+    <name><text>ex9-9-7</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 9, Ex 9(7) | logical-equivalence | difficulty 2</small></p><p>Are A → B and ¬A ∨ B logically equivalent? (yes/no)</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden>
+    <answer fraction="100" format="moodle_auto_format"><text>true</text><feedback format="html"><text>Correct - they are equivalent.</text></feedback></answer>
+    <answer fraction="0" format="moodle_auto_format"><text>false</text><feedback format="html"><text>Incorrect.</text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex8-8-2 - Let A = "I study logic", B = "I will be </text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 8, Ex 8(2) | statement, logical-connectives | difficulty 1</small></p><p>Let A = "I study logic", B = "I will be an engineer". Which formula represents: "I study logic but I will not be an engineer"?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="0" format="html"><text><![CDATA[A ∧ B]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="100" format="html"><text><![CDATA[A ∧ ¬B]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[¬A ∧ ¬B]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[A → ¬B]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex8-8-5 - Let A = "I study logic", B = "I will be </text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 8, Ex 8(5) | statement, logical-connectives | difficulty 1</small></p><p>Let A = "I study logic", B = "I will be an engineer". Which formula represents: "If I study logic, then I will be an engineer"?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="0" format="html"><text><![CDATA[A ∨ B]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[B → A]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="100" format="html"><text><![CDATA[A → B]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[A ↔ B]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex1-4-def - What is the symmetric difference A Δ B e</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 1, Ex 4/8a | set-operations | difficulty 1</small></p><p>What is the symmetric difference A Δ B equal to?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="0" format="html"><text><![CDATA[(A\B) ∪ (B\A)]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[(A ∪ B)\(A ∩ B)]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="100" format="html"><text><![CDATA[Both — they are always equal]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[Neither of these]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex1-5-comp - Let A = {a, b, 1}, B = {a, 1, 2}, C = {1</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 1, Ex 5(1) | set-operations | difficulty 2</small></p><p>Let A = {a, b, 1}, B = {a, 1, 2}, C = {1, 2}. What is (A ∪ B)\C ?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html"><text><![CDATA[{a, b}]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[{a}]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[{1, 2}]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[{a, b, 1, 2}]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex1-3-power - If A is a four-element set, how many ele</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 1, Ex 3 | power-set | difficulty 1</small></p><p>If A is a four-element set, how many elements does its power set P(A) contain?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="0" format="html"><text><![CDATA[4]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[8]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="100" format="html"><text><![CDATA[16]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[24]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex1-7-id - Which equality is true for every set A?</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 1, Ex 7(6) | set-identities | difficulty 1</small></p><p>Which equality is true for every set A?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="0" format="html"><text><![CDATA[A Δ A = A]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[A ∩ ∅ = A]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="100" format="html"><text><![CDATA[A Δ ∅ = A]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[A ∪ ∅ = ∅]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex2-2-card - A and B are both four-element sets. How </text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 2, Ex 2 | cartesian-product | difficulty 1</small></p><p>A and B are both four-element sets. How many ordered pairs does A × B contain?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="0" format="html"><text><![CDATA[4]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[8]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[12]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="100" format="html"><text><![CDATA[16]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex2-4-comm - When does A × B = B × A hold?</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 2, Ex 4 | cartesian-product | difficulty 2</small></p><p>When does A × B = B × A hold?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="0" format="html"><text><![CDATA[Always, × is commutative]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[Never]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="100" format="html"><text><![CDATA[Only when A = B, or when either set is empty]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[Whenever A ⊆ B]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex2-7-count - How many different binary relations are </text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 2, Ex 7 | binary-relations | difficulty 3</small></p><p>How many different binary relations are there on a two-element set A? (A relation is any subset of A × A)</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="0" format="html"><text><![CDATA[4]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[8]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="100" format="html"><text><![CDATA[16]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[32]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex2-8-sym - A binary relation r on A is symmetric if</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 2, Ex 8(c) | relation-properties | difficulty 1</small></p><p>A binary relation r on A is symmetric if and only if:</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="0" format="html"><text><![CDATA[(a, a) ∈ r for every a ∈ A]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="100" format="html"><text><![CDATA[(a, b) ∈ r implies (b, a) ∈ r]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[(a, b) ∈ r and (b, a) ∈ r imply a = b]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[(a, b) ∈ r and (b, c) ∈ r imply (a, c) ∈ r]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex3-1-fn - Which of these relations r ⊆ R × R is a </text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 3, Ex 1(e) | functions-rel | difficulty 2</small></p><p>Which of these relations r ⊆ R × R is a function from R to R?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="0" format="html"><text><![CDATA[x r y : x² + y² = 1]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[x r y : x = y²]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="100" format="html"><text><![CDATA[x r y : y = eˣ]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[x r y : |x − y| = 1]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex3-8-chi - For the characteristic function χX of a </text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 3, Ex 8(d) | functions-rel | difficulty 2</small></p><p>For the characteristic function χX of a set X ⊆ U, what is χ(A∩B)(x) equal to?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="0" format="html"><text><![CDATA[χA(x) + χB(x)]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="100" format="html"><text><![CDATA[χA(x) · χB(x)]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[χA(x) − χB(x)]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[χA(x) + χB(x) − χA(x) · χB(x)]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex4-9-well - Why is ⟨Z, ≤⟩ NOT a well-ordering?</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 4, Ex 9 | ordering-relations | difficulty 2</small></p><p>Why is ⟨Z, ≤⟩ NOT a well-ordering?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="0" format="html"><text><![CDATA[≤ is not linear on Z]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="100" format="html"><text><![CDATA[Z has non-empty subsets (e.g. Z itself) with no smallest element]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[Some pairs of integers are incomparable under ≤]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[≤ is not transitive on Z]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex4-7-sup - For B = {2, 3, 5} ⊆ N with the usual ≤, </text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 4, Ex 7 | bounds-sup-inf | difficulty 1</small></p><p>For B = {2, 3, 5} ⊆ N with the usual ≤, what is sup(B)?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="0" format="html"><text><![CDATA[3]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="100" format="html"><text><![CDATA[5]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[10]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[It does not exist]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex5-5-group - Which of the following algebraic structu</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 5, Ex 5/7 | algebraic-structures | difficulty 2</small></p><p>Which of the following algebraic structures ⟨carrier, operation⟩ is a group?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="0" format="html"><text><![CDATA[⟨N, +⟩]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[⟨Z, ·⟩]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[⟨N, ·⟩]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="100" format="html"><text><![CDATA[⟨Z, +⟩]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex5-7-neutral - What is the neutral element of ⟨Z, ·⟩ (i</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 5, Ex 7(b) | algebraic-structures | difficulty 1</small></p><p>What is the neutral element of ⟨Z, ·⟩ (integers under multiplication)?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="0" format="html"><text><![CDATA[0]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="100" format="html"><text><![CDATA[1]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[−1]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[There is none]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex6-1-ring - Which algebraic structure ⟨carrier, {+, </text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 6, Ex 2 | rings-fields | difficulty 2</small></p><p>Which algebraic structure ⟨carrier, {+, ·}⟩ is a commutative ring with 1?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="0" format="html"><text><![CDATA[⟨N, {+, ·}⟩]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[⟨Mn(R), {+, ·}⟩ for n > 1]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="100" format="html"><text><![CDATA[⟨Z, {+, ·}⟩]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[None of them]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex6-8-bool - In the Boolean algebra K = ⟨P(A), ∅, A, </text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 6, Ex 8 | boolean-algebra | difficulty 2</small></p><p>In the Boolean algebra K = ⟨P(A), ∅, A, {∪, ∩, ¬}⟩ built on a three-element set A, what is the complement of ∅?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="0" format="html"><text><![CDATA[∅]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[{∅}]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="100" format="html"><text><![CDATA[A]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[It is undefined]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex7-4-equin - Which pair of sets is equinumerous (has </text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 7, Ex 4(1) | cardinality | difficulty 2</small></p><p>Which pair of sets is equinumerous (has the same cardinality)?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html"><text><![CDATA[The even numbers and the odd numbers]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[N and R]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[R and the natural numbers]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[Any finite set and N]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex7-6-count - Every subset of a countable set is:</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 7, Ex 6 | countability | difficulty 2</small></p><p>Every subset of a countable set is:</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="0" format="html"><text><![CDATA[always finite]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="100" format="html"><text><![CDATA[either finite or countable]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[always uncountable]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[always empty]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex8-5-stmt - Which of these sentences is NOT a statem</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 8, Ex 5(5) | statement | difficulty 1</small></p><p>Which of these sentences is NOT a statement in propositional logic?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="0" format="html"><text><![CDATA["2 + 5 = 4"]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="100" format="html"><text><![CDATA["x + 7 = 11"]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA["Berlin is the capital of Germany"]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA["2 ≥ 10"]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex9-3-wff - Which of the following is a correctly co</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 9, Ex 3/4 | formula-syntax | difficulty 1</small></p><p>Which of the following is a correctly constructed formula of propositional logic?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="0" format="html"><text><![CDATA[A ∧ ∨ B]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="100" format="html"><text><![CDATA[¬(A ∧ B) → (¬A ∨ B)]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[(A → )(B ∧ C)]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[¬(A ∧ B →]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+  <question type="truefalse">
+    <name><text>ex9-8-2</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 9, Ex 8(2) | tautology, zero-one-method | difficulty 2</small></p><p>Is A → (A ∨ B) a tautology? (yes/no)</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden>
+    <answer fraction="100" format="moodle_auto_format"><text>true</text><feedback format="html"><text>Correct - it is a tautology.</text></feedback></answer>
+    <answer fraction="0" format="moodle_auto_format"><text>false</text><feedback format="html"><text>Incorrect.</text></feedback></answer>
+  </question>
+  <question type="truefalse">
+    <name><text>ex9-8-3</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 9, Ex 8(3) | tautology, zero-one-method | difficulty 2</small></p><p>Is ¬A → (A → B) a tautology? (yes/no)</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden>
+    <answer fraction="100" format="moodle_auto_format"><text>true</text><feedback format="html"><text>Correct - it is a tautology.</text></feedback></answer>
+    <answer fraction="0" format="moodle_auto_format"><text>false</text><feedback format="html"><text>Incorrect.</text></feedback></answer>
+  </question>
+  <question type="truefalse">
+    <name><text>ex9-tb-variant</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 9, Ex 8 (discussion) | tautology | difficulty 2</small></p><p>Is (A ∨ B) → A a tautology? (yes/no)</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden>
+    <answer fraction="0" format="moodle_auto_format"><text>true</text><feedback format="html"><text>Incorrect.</text></feedback></answer>
+    <answer fraction="100" format="moodle_auto_format"><text>false</text><feedback format="html"><text>Correct - not a tautology.</text></feedback></answer>
+  </question>
+  <question type="truefalse">
+    <name><text>ex10-7-axiom</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 10, Ex 7(1) | inference-rules, tautology | difficulty 2</small></p><p>Axiom 1 of propositional calculus: is A → (B → A) a tautology? (yes/no)</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden>
+    <answer fraction="100" format="moodle_auto_format"><text>true</text><feedback format="html"><text>Correct - it is a tautology.</text></feedback></answer>
+    <answer fraction="0" format="moodle_auto_format"><text>false</text><feedback format="html"><text>Incorrect.</text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex9-zeroone - Using the zero-one method on a formula w</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 9, Ex 8 (method) | zero-one-method, truth-table | difficulty 1</small></p><p>Using the zero-one method on a formula with three distinct variables, how many rows does its truth table have?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="0" format="html"><text><![CDATA[3]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[6]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="100" format="html"><text><![CDATA[8]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[9]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+  <question type="truefalse">
+    <name><text>ex9-9-idem</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 9, Ex 9(1) | logical-equivalence | difficulty 1</small></p><p>Are A ∨ A and A logically equivalent? (yes/no)</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden>
+    <answer fraction="100" format="moodle_auto_format"><text>true</text><feedback format="html"><text>Correct - they are equivalent.</text></feedback></answer>
+    <answer fraction="0" format="moodle_auto_format"><text>false</text><feedback format="html"><text>Incorrect.</text></feedback></answer>
+  </question>
+  <question type="truefalse">
+    <name><text>ex9-9-contraposition</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 9, Ex 9(8) | logical-equivalence | difficulty 2</small></p><p>Are A → B and ¬B → ¬A logically equivalent? (yes/no)</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden>
+    <answer fraction="100" format="moodle_auto_format"><text>true</text><feedback format="html"><text>Correct - they are equivalent.</text></feedback></answer>
+    <answer fraction="0" format="moodle_auto_format"><text>false</text><feedback format="html"><text>Incorrect.</text></feedback></answer>
+  </question>
+  <question type="truefalse">
+    <name><text>ex9-9-xor</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 9, Ex 9 (discussion) | logical-equivalence, logical-connectives | difficulty 2</small></p><p>Are A ⊕ B and A ∨ B logically equivalent? (yes/no)</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden>
+    <answer fraction="0" format="moodle_auto_format"><text>true</text><feedback format="html"><text>Incorrect.</text></feedback></answer>
+    <answer fraction="100" format="moodle_auto_format"><text>false</text><feedback format="html"><text>Correct - not equivalent.</text></feedback></answer>
+  </question>
+  <question type="truefalse">
+    <name><text>ex11-11-absorption</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 11, Ex 11 (laws of algebra of logic) | boolean-algebra-laws, logical-equivalence | difficulty 2</small></p><p>Absorption law: are A ∨ (A ∧ B) and A logically equivalent? (yes/no)</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden>
+    <answer fraction="100" format="moodle_auto_format"><text>true</text><feedback format="html"><text>Correct - they are equivalent.</text></feedback></answer>
+    <answer fraction="0" format="moodle_auto_format"><text>false</text><feedback format="html"><text>Incorrect.</text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex10-2-mt - Which inference rule concludes ¬A from t</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 10, Ex 2(2) | inference-rules | difficulty 1</small></p><p>Which inference rule concludes ¬A from the premises A → B and ¬B?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="0" format="html"><text><![CDATA[Modus ponens]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="100" format="html"><text><![CDATA[Modus tollens]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[Syllogism rule]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[Tollendo ponens]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex10-2-prob - The scheme "A → B, B, therefore probably</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 10, Ex 2(8) | inference-rules | difficulty 2</small></p><p>The scheme "A → B, B, therefore probably A" is:</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="0" format="html"><text><![CDATA[reliable — it is modus ponens]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="100" format="html"><text><![CDATA[only probabilistic — affirming the consequent is not reliable]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[reliable — it is modus tollens]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[reliable — it is the syllogism rule]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex13-11-all - Let K(x, y) mean "x knows y". Which form</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 13, Ex 11(3) | quantifiers, predicate | difficulty 2</small></p><p>Let K(x, y) mean "x knows y". Which formula says "Everyone knows everyone"?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html"><text><![CDATA[∀x∀y K(x, y)]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[∃x∃y K(x, y)]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[∀x∃y K(x, y)]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[∃x∀y K(x, y)]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex13-11-notall - Let K(x, y) mean "x knows y". Which form</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 13, Ex 11(2) | quantifiers, predicate | difficulty 3</small></p><p>Let K(x, y) mean "x knows y". Which formula says "Not everyone knows someone"?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html"><text><![CDATA[¬∀x∃y K(x, y)]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[∀x∃y K(x, y)]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[∀x¬∃y K(x, y)]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[∃y∀x ¬K(x, y)]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex12-1-denot - What is the scope (denotation) of the co</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 12, Ex 1 | concept-logic | difficulty 1</small></p><p>What is the scope (denotation) of the concept "bird"?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html"><text><![CDATA[The set of all objects the concept covers — all birds]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[The definition's essential attributes]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[The word's etymology]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[One prototypical example]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex12-7-gen - Generalizing the concept "rose", we obta</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 12, Ex 7(2) | concept-logic | difficulty 2</small></p><p>Generalizing the concept "rose", we obtain:</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="0" format="html"><text><![CDATA["tea rose"]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="100" format="html"><text><![CDATA["flower"]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA["red rose"]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA["thorn"]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex15-4-hamming - On U = {1,2,3,4,5}: χX(i) = 0.05·i and χ</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 15, Ex 4 | fuzzy-sets | difficulty 3</small></p><p>On U = {1,2,3,4,5}: χX(i) = 0.05·i and χY(i) = 0.5. What is the Hamming distance ρ(X, Y)?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="0" format="html"><text><![CDATA[0.75]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="100" format="html"><text><![CDATA[1.75]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[2.50]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[0.45]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>ex15-3-op - For fuzzy sets given by membership funct</text></name>
+    <questiontext format="html"><text><![CDATA[<p><small>Exercises 15, Ex 3(b) | fuzzy-sets | difficulty 1</small></p><p>For fuzzy sets given by membership functions, the intersection is computed using which operation on membership degrees?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade><penalty>0.33</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+    <answer fraction="0" format="html"><text><![CDATA[max]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="100" format="html"><text><![CDATA[min]]></text><feedback format="html"><text><![CDATA[Correct]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[sum]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+    <answer fraction="0" format="html"><text><![CDATA[average]]></text><feedback format="html"><text><![CDATA[Incorrect]]></text></feedback></answer>
+  </question>
+</quiz>
