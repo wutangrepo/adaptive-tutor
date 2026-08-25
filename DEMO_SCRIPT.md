@@ -4,9 +4,7 @@
 ```powershell
 cd C:\Users\Mcius\Desktop\adaptive-tutor
 .\.venv\Scripts\Activate.ps1
-# Optional fresh data:
-.\.venv\Scripts\python.exe scripts\seed.py
-# Start app:
+# Start app (auto-seeds app.db on first run):
 uvicorn app.main:app --reload
 # Open two windows:
 # Student:  http://127.0.0.1:8000/?sid=alice

@@ -12,8 +12,8 @@ Lean adaptive tutor with deterministic grading and LLM-assisted hint drafting (h
 ```powershell
 python -m venv .venv; .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-python scripts/seed.py          # creates app.db + 46 items
-uvicorn app.main:app --reload   # http://127.0.0.1:8000/?sid=alice
+uvicorn app.main:app --reload   # auto-seeds app.db (46 items) on first run
+# http://127.0.0.1:8000/?sid=alice
 # professor console: /review  key=professor (set PROFESSOR_KEY env for prod)
 ```
 
@@ -27,19 +27,17 @@ $env:OLLAMA_MODEL="qwen3.5:4b"; $env:OLLAMA_BASE="http://localhost:11434"
 ## Project layout
 ```
 app/
-  main.py      — routes (quiz/answer/dashboard/review/health), cached domain_map, Depends(get_db)
-  models.py    — Item / Attempt / HintDraft / AuditLog (constraints + indexes)
-  db.py        — engine (DATABASE_URL, pool_pre_ping) + SessionLocal
-  proplog.py   — parse/evaluate/is_tautology/are_equivalent (cached)
+  main.py      — routes (quiz/answer/dashboard/review/health), auto-seed, cached domain_map
+  models.py    — Item / Attempt / HintDraft / AuditLog
+  db.py        — engine (DATABASE_URL) + SessionLocal
+  proplog.py   — parse/evaluate/is_tautology/are_equivalent (lru_cache)
   grading.py   — deterministic grade()
   adaptive.py  — init/update/select/explain/should_stop
-  llm.py       — OllamaProvider (Session pooling)
+  llm.py       — OllamaProvider (Session pooling, OLLAMA_* env)
   approval.py  — hint_transition FSM
   templates/   — quiz / result / dashboard / done / review
 data/
   items.json (46 deterministic), domain_map.json (29 concepts)
-scripts/
-  seed.py, validate_data.py, check_db.py, db_stats.py, smoke_review.py
 ```
 
 ## How it works

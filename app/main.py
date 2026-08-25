@@ -58,9 +58,27 @@ app = FastAPI(title="Adaptive Tutor", version="2.1")
 templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
 
 
+def _ensure_db():
+    Base.metadata.create_all(bind=engine)
+    try:
+        with SessionLocal() as db:
+            if db.query(Item).count() == 0 and (DATA / "items.json").exists():
+                items = json.loads((DATA / "items.json").read_text(encoding="utf-8"))
+                for rec in items:
+                    db.add(Item(**rec))
+                db.commit()
+                log.info("auto-seeded %d items", len(items))
+    except Exception as e:  # noqa: BLE001
+        log.warning("auto-seed check failed: %s", e)
+
+
+# Ensure tables exist at import (for TestClient without lifespan) + on startup
+_ensure_db()
+
+
 @app.on_event("startup")
 def _create_tables():
-    Base.metadata.create_all(bind=engine)
+    _ensure_db()
 
 
 @lru_cache(maxsize=1)
