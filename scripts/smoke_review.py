@@ -1,8 +1,5 @@
-"""Direct smoke test: calls the route functions in-process (no HTTP server).
+"""In-process smoke test — hint draft → approve → audit (requires Ollama)."""
 
-Requires Ollama running -- makes two real qwen calls.
-"""
-import asyncio
 import sys
 from pathlib import Path
 from types import SimpleNamespace
@@ -10,79 +7,37 @@ from types import SimpleNamespace
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from app.db import SessionLocal  # noqa: E402
-from app.main import (COOKIE_NAME, _professor_token, assess_draft,  # noqa: E402
-                      hint_draft, review_assessment, review_hint)
-from app.models import Assessment, AuditLog, HintDraft  # noqa: E402
+from app.main import COOKIE_NAME, _professor_token, hint_draft, review_hint  # noqa: E402
+from app.models import AuditLog, HintDraft  # noqa: E402
 
-# professor-authorized request shim for calling the guarded routes directly
 PROF = SimpleNamespace(cookies={COOKIE_NAME: _professor_token()})
+results: list[bool] = []
 
-results = []
 
-
-def check(name, ok, extra=""):
+def check(name: str, ok: bool, extra: str = "") -> None:
     results.append(ok)
-    print(("PASS " if ok else "FAIL ") + name + (f" -- {extra}" if extra else ""), flush=True)
+    print(("PASS " if ok else "FAIL ") + name + (f" — {extra}" if extra else ""), flush=True)
 
 
-def latest_hint():
-    with SessionLocal() as db:
-        return db.query(HintDraft).order_by(HintDraft.id.desc()).first()
-
-
-# 1) draft a real hint via qwen
-r = hint_draft("ex9-8-1", PROF)
+r = hint_draft("ex9-8-1", PROF)  # type: ignore[arg-type]
 with SessionLocal() as db:
     h = db.query(HintDraft).order_by(HintDraft.id.desc()).first()
-    hid, hstatus, htext = h.id, h.status, h.text
-check("hint drafted by live model",
-      h is not None and hstatus == "draft" and bool(htext),
-      repr((htext or "")[:70]) if h else "")
+check("hint drafted", h is not None and h.status == "draft" and bool(h.text), repr((h.text or "")[:70]))
 
-# 2) professor approves the hint
-review_hint(hid, PROF, action="approved")
-with SessionLocal() as db:
-    status_now = db.get(HintDraft, hid).status
-check("hint approved via FSM", status_now == "approved")
-
-# 3) illegal transition rejected (approved -> rejected must fail)
-review_hint(hid, PROF, action="rejected")
-with SessionLocal() as db:
-    status_now = db.get(HintDraft, hid).status
-check("illegal transition blocked", status_now == "approved")
-
-# 4) AI grade draft for a free-text answer (second real qwen call)
-asyncio.run(assess_draft("ex9-9-6", sid="smoke",
-                         answer_text="By De Morgan's law, negating a "
-                                     "conjunction negates both parts and "
-                                     "turns AND into OR."))
-with SessionLocal() as db:
-    a = (db.query(Assessment).filter_by(learner_id="smoke")
-         .order_by(Assessment.id.desc()).first())
-    aid = a.id if a else None
-    a_status, a_total, a_max, a_conf = (a.status, a.ai_total, a.ai_max,
-                                        a.ai_confidence) if a else (None,) * 4
-assess_ok = (a is not None and a_status in ("pending", "needs_human")
-             and a_max == 3)
-check("AI grade drafted into Assessment", assess_ok,
-      (f"status={a_status} score={a_total}/{a_max} conf={a_conf}"
-       if assess_ok else "no assessment row"))
-
-# 5) professor overrides the grade with a custom score
-if assess_ok:
-    review_assessment(aid, PROF, action="overridden", final_total=1)
+if h:
+    review_hint(h.id, PROF, action="approved")  # type: ignore[arg-type]
     with SessionLocal() as db:
-        a2 = db.get(Assessment, aid)
-    check("grade overridden via FSM",
-          a2.status == "overridden" and a2.final_total == 1)
+        s = db.get(HintDraft, h.id).status  # type: ignore[union-attr]
+    check("hint approved", s == "approved")
 
-# 6) audit trail recorded every step
+    review_hint(h.id, PROF, action="rejected")  # type: ignore[arg-type]
+    with SessionLocal() as db:
+        s = db.get(HintDraft, h.id).status  # type: ignore[union-attr]
+    check("illegal transition blocked", s == "approved")
+
 with SessionLocal() as db:
-    actors = [row.actor for row in db.query(AuditLog).order_by(AuditLog.id).all()]
-check("audit trail has AI + professor actors",
-      any(x.startswith("ollama:") for x in actors) and "professor" in actors,
-      ", ".join(sorted(set(actors))))
+    actors = [row.actor for row in db.query(AuditLog).all()]
+check("audit has AI + professor", any(a.startswith("ollama:") for a in actors) and "professor" in actors, ", ".join(sorted(set(actors))) or "no audit rows")
 
-print("\n" + ("ALL SMOKE TESTS PASSED" if all(results) else "SOME CHECKS FAILED"),
-      flush=True)
-
+print("\n" + ("ALL SMOKE TESTS PASSED" if all(results) else "SOME CHECKS FAILED"))
+sys.exit(0 if all(results) else 1)

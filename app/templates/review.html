@@ -1,79 +1,38 @@
 <!doctype html>
-<html><head><meta charset="utf-8"><title>Professor Review</title></head>
-<body style="max-width:760px;margin:2rem auto;font-family:sans-serif">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Professor Review</title>
+<style>body{max-width:760px;margin:2rem auto;font-family:system-ui,sans-serif;line-height:1.5;padding:0 1rem} .card{border:1px solid #ddd;border-radius:8px;padding:.6rem;margin:.6rem 0} button{padding:.4rem .7rem;border:1px solid #ccc;border-radius:8px;background:#fff;cursor:pointer} button:hover{background:#f5f5f5} table{border-collapse:collapse;width:100%}</style>
+</head>
+<body>
   <h2>🧑‍🏫 Professor Review</h2>
-  {% if msg %}<p style="background:#eef;padding:.5rem;border-radius:6px">{{ msg }}</p>{% endif %}
+  {% if msg %}<p style="background:#eef;padding:.5rem;border-radius:8px">{{ msg }}</p>{% endif %}
 
   {% if not authorized %}
-    <p>This area is for course staff. Please enter the professor key.</p>
+    <p>This area for course staff. Enter professor key.</p>
     <form method="post" action="/review/login">
-      <input type="password" name="key" autofocus placeholder="professor key">
+      <input type="password" name="key" autofocus placeholder="professor key" required>
       <button type="submit">Sign in</button>
     </form>
   {% else %}
-
-  <p style="text-align:right"><form method="post" action="/review/logout" style="display:inline">
-    <button type="submit" style="font-size:.8rem">🚪 Log out</button>
-  </form></p>
-  <p><small>AI drafts with confidence ≥ {{ '%.2f'|format(gate) }} wait as <b>pending</b>; lower ones are flagged <b>needs_human</b>.</small></p>
+  <p style="text-align:right"><form method="post" action="/review/logout" style="display:inline"><button type="submit" style="font-size:.85rem">🚪 Log out</button></form></p>
 
   <h3>Draft a hint for a question</h3>
   <form method="post" action="/review/draft-hint">
-    <select name="item_id">
+    <select name="item_id" required>
       {% for it in items %}<option value="{{ it.id }}">{{ it.id }} — {{ it.stem[:60] }}</option>{% endfor %}
     </select>
-    <button type="submit">💡 Ask AI for a hint draft</button>
+    <button type="submit">💡 Ask AI for hint draft</button>
   </form>
-
-  <h3>AI reasoning-feedback drafts</h3>
-  {% if not assessments %}<p><i>Nothing waiting for review.</i></p>{% endif %}
-  {% for a, item in assessments %}
-    <div style="border:1px solid #ddd;border-radius:6px;padding:.6rem;margin:.6rem 0">
-      <div>
-        <b>{{ a.status }}</b>
-        {% if a.ai_total is not none %}— AI score: {{ a.ai_total }}/{{ a.ai_max }}
-        (confidence {{ '%.2f'|format(a.ai_confidence) }}){% endif %}
-      </div>
-      <p><small>[{{ item.id }}] {{ item.stem }}</small></p>
-      <p style="background:#f7f7f7;border-radius:6px;padding:.4rem">“{{ a.answer }}”</p>
-      {% if a.ai_breakdown and a.ai_breakdown.criteria %}
-        <ul style="font-size:.85rem">
-          {% for c in a.ai_breakdown.criteria %}
-            <li>{{ c.criterion }} — {{ c.awarded }}/{{ c.points }}</li>
-          {% endfor %}
-        </ul>
-      {% elif a.ai_breakdown and a.ai_breakdown.error %}
-        <p style="color:#b00;font-size:.85rem">⚠️ The AI could not produce a valid
-          grade for this submission ({{ a.ai_breakdown.error }}) — please grade
-          it yourself below.</p>
-      {% endif %}
-      {% if a.ai_total is not none %}
-        <form method="post" action="/review/assessment/{{ a.id }}" style="display:inline">
-          <input type="hidden" name="action" value="approved">
-          <button type="submit">✅ Approve {{ a.ai_total }}/{{ a.ai_max }}</button>
-        </form>
-      {% endif %}
-      <form method="post" action="/review/assessment/{{ a.id }}" style="display:inline">
-        <input type="hidden" name="action" value="overridden">
-        <label>Grade manually: <input type="number" name="final_total" min="0"
-               value="{{ a.ai_total if a.ai_total is not none else 0 }}"></label>
-        <button type="submit">{{ "✏️ Override" if a.ai_total is not none else "📝 Save grade" }}</button>
-      </form>
-    </div>
-  {% endfor %}
 
   <h3>Draft hints awaiting approval</h3>
   {% if not hints %}<p><i>No draft hints.</i></p>{% endif %}
   {% for h, item in hints %}
-    <div style="border:1px solid #ddd;border-radius:6px;padding:.6rem;margin:.6rem 0">
+    <div class="card">
       <p><small>[{{ item.id }}]</small> 💡 {{ h.text }}</p>
       <form method="post" action="/review/hint/{{ h.id }}" style="display:inline">
-        <input type="hidden" name="action" value="approved">
-        <button type="submit">✅ Approve (show to learners)</button>
+        <input type="hidden" name="action" value="approved"><button type="submit">✅ Approve</button>
       </form>
       <form method="post" action="/review/hint/{{ h.id }}" style="display:inline">
-        <input type="hidden" name="action" value="rejected">
-        <button type="submit">🗑️ Reject</button>
+        <input type="hidden" name="action" value="rejected"><button type="submit">🗑️ Reject</button>
       </form>
     </div>
   {% endfor %}
@@ -81,21 +40,14 @@
   <h3>Recent learner answers</h3>
   {% if not recent_attempts %}<p><i>No quiz attempts yet.</i></p>{% endif %}
   {% if recent_attempts %}
-    <table style="width:100%;border-collapse:collapse;font-size:.9rem">
-      <tr style="text-align:left;border-bottom:1px solid #ccc">
-        <th style="padding:.3rem">learner</th><th>question</th><th>result</th>
-      </tr>
+    <table style="font-size:.9rem">
+      <tr style="text-align:left;border-bottom:1px solid #ccc"><th style="padding:.3rem">learner</th><th>question</th><th>result</th></tr>
       {% for a, item in recent_attempts %}
-        <tr>
-          <td style="padding:.3rem">{{ a.learner_id }}</td>
-          <td>{{ item.id }} — {{ item.stem[:50] }}</td>
-          <td>{% if a.correct %}✅ correct{% else %}❌ wrong{% endif %}</td>
-        </tr>
+        <tr><td style="padding:.3rem">{{ a.learner_id }}</td><td>{{ item.id }} — {{ item.stem[:50] }}</td><td>{% if a.correct %}✅ correct{% else %}❌ wrong{% endif %}</td></tr>
       {% endfor %}
     </table>
-    <p><small>Showing the latest {{ recent_attempts|length }} attempt(s).</small></p>
+    <p><small>Showing latest {{ recent_attempts|length }} attempt(s).</small></p>
   {% endif %}
-
   {% endif %}
-  <p><a href="/?sid=demo">← back to the quiz</a></p>
+  <p><a href="/?sid=demo">← back to quiz</a></p>
 </body></html>
