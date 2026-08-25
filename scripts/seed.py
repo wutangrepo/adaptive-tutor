@@ -1,51 +1,49 @@
+"""Seed DB from data/items.json with deterministic expected values."""
+
+import argparse
 import json
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from app.db import engine, SessionLocal, Base
-from app.models import Item
-from app import proplog
+from app import proplog  # noqa: E402
+from app.db import Base, SessionLocal, engine  # noqa: E402
+from app.models import Item  # noqa: E402
 
 DATA = Path(__file__).resolve().parent.parent / "data"
 
 
-def derive_expected(rec):
+def derive_expected(rec: dict):
     p = rec["payload"]
-    if rec["type"] == "logic_eval":
+    t = rec["type"]
+    if t == "logic_eval":
         return proplog.evaluate(p["formula"], p["assignment"])
-    if rec["type"] == "tautology_check":
+    if t == "tautology_check":
         return proplog.is_tautology(p["formula"])
-    if rec["type"] == "equivalence_check":
+    if t == "equivalence_check":
         return proplog.are_equivalent(p["formula1"], p["formula2"])
-    if rec["type"] == "mcq":
+    if t == "mcq":
         return p["options"][p["answer_index"]]
-    return _SKIP  # LLM/rubric-graded type: seed it, but nothing to derive
+    raise ValueError(f"unknown item type {t!r}")
 
 
-_SKIP = object()
-
-
-def main():
-    Base.metadata.create_all(engine)
+def main(reset: bool = True):
+    Base.metadata.create_all(bind=engine)
     items = json.loads((DATA / "items.json").read_text(encoding="utf-8"))
     with SessionLocal() as db:
-        db.query(Item).delete()
-        skipped = 0
+        if reset:
+            db.query(Item).delete()
         for rec in items:
             expected = derive_expected(rec)
-            if expected is _SKIP:
-                skipped += 1
-                print(f"  {rec['id']:>10}  expected = (LLM/rubric-graded)")
-            else:
-                print(f"  {rec['id']:>10}  expected = {expected}")
-            db.add(Item(**rec))
+            print(f"  {rec['id']:>14}  expected = {expected}")
+            db.merge(Item(**rec))  # upsert
         db.commit()
-    print(f"seeded {len(items)} items"
-          + (f" ({skipped} non-deterministic, graded via AI rubric flow)"
-             if skipped else ""))
+    print(f"seeded {len(items)} items into {engine.url}")
 
 
 if __name__ == "__main__":
-    main()
+    ap = argparse.ArgumentParser(description="Seed adaptive-tutor DB")
+    ap.add_argument("--append", action="store_true", help="don't delete existing items")
+    args = ap.parse_args()
+    main(reset=not args.append)

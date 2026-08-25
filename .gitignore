@@ -1,19 +1,21 @@
 # Python
 __pycache__/
+*.pyc
 
 # Derived artifacts
 *.db
+*.sqlite
 extracted_*.txt
 
 # environment
 .venv/
+.env
 
-# pytest
+# pytest / coverage
 .pytest_cache/
 .coverage
+htmlcov/
 
 # editor
 .vscode/
-
-# demo
-DEMO_SCRIPT.md
+.idea/

@@ -1,28 +1,25 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Mastery Dashboard</title>
 <style>
-  body   { max-width: 640px; margin: 2rem auto; font-family: sans-serif; }
-  table  { border-collapse: collapse; width: 100%; }
-  td, th { padding: 6px 10px; border: 1px solid #ccc; text-align: left; }
-  .bad   { background: #f8d7da; }
-  .mid   { background: #fff3cd; }
-  .good  { background: #d4edda; }
+  body{max-width:680px;margin:2rem auto;font-family:system-ui,sans-serif;padding:0 1rem}
+  table{border-collapse:collapse;width:100%} td,th{padding:6px 10px;border:1px solid #ccc;text-align:left}
+  .bad{background:#f8d7da} .mid{background:#fff3cd} .good{background:#d4edda}
+  .bar{height:8px;border-radius:4px}
 </style>
 </head>
 <body>
   <h2>Mastery heatmap — {{ sid }}</h2>
   <table>
-    <tr><th>concept</th><th>mastery</th></tr>
+    <tr><th>concept</th><th>mastery</th><th>progress</th></tr>
     {% for concept, m in rows %}
-    <tr class="{% if m < 0.5 %}bad{% elif m < 0.75 %}mid{% else %}good{% endif %}">
-      <td>{{ concept }}</td>
-      <td>{{ "%.2f"|format(m) }}</td>
-    </tr>
+    {% set pct = m*100 %}
+    {% set cls = 'bad' if m < 0.5 else ('mid' if m < 0.75 else 'good') %}
+    <tr class="{{ cls }}"><td>{{ concept }}</td><td>{{ "%.2f"|format(m) }}</td><td style="width:40%"><div style="background:#eee;border-radius:4px;height:8px;overflow:hidden"><div class="bar" style="width:{{ pct }}%;background:{% if m<0.5 %}#e53935{% elif m<0.75 %}#ff9800{% else %}#4caf50{% endif %}"></div></div></td></tr>
     {% endfor %}
   </table>
-  <p><a href="/?sid={{ sid }}">continue</a></p>
+  <p><a href="/?sid={{ sid }}">continue</a> · <a href="/">quiz start</a></p>
 </body>
 </html>
