@@ -1,0 +1,38 @@
+{
+  "total_trials": 183,
+  "evaluable": 183,
+  "llm_unparseable": 0,
+  "det_unparseable": 0,
+  "overall_agreement": 0.8087,
+  "by_type": {
+    "logic_eval": 0.4167,
+    "tautology_check": 0.75,
+    "equivalence_check": 0.8333,
+    "mcq": 0.8537
+  },
+  "by_difficulty": {
+    "2": 0.7885,
+    "3": 0.6875,
+    "1": 0.873
+  },
+  "by_concept_top": {
+    "tautology": 0.75,
+    "logical-equivalence": 0.8333,
+    "zero-one-method": 0.85,
+    "logical-function": 0.4167,
+    "function-evaluation": 0.4167,
+    "statement": 1.0,
+    "logical-connectives": 0.9167,
+    "inference-rules": 1.0,
+    "set-operations": 0.625,
+    "cartesian-product": 0.625
+  },
+  "confusion": {
+    "det1_llm1": 90,
+    "det0_llm0": 58,
+    "det1_llm0": 13,
+    "det0_llm1": 22
+  },
+  "avg_latency_s": 2.497,
+  "stub_mode": false
+}

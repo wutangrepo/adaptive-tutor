@@ -1,0 +1,296 @@
+// Adaptive Tutor - Logic and Set Theory - GIFT export
+// Generated for Moodle Question bank import
+$CATEGORY: $course$/top/Adaptive Tutor - Logic and Set Theory
+
+// Exercises 11, Ex 4 | logical-function, function-evaluation | difficulty 2
+::ex11-4::[html]Specify the value of f(x1, x2) \= (x1 ⊕ x2) ⊕ (x1 ∨ x2) if x1 \= 1, x2 \= 0. (answer 0 or 1) {=0}
+
+// Exercises 11, Ex 5 | logical-function, function-evaluation | difficulty 2
+::ex11-5::[html]Specify the value of f(x1, x2) \= (x1 ⊕ x2) ∧ (¬x1 ⊕ x2) if x1 \= 1, x2 \= 1. (answer 0 or 1) {=0}
+
+// Exercises 11, Ex 6 | logical-function, function-evaluation | difficulty 3
+::ex11-6::[html]Specify the value of f(x1, x2, x3) \= (x1 ⊕ x2) ∧ (x1 ⊕ x3) ∧ (¬x2 ∨ ¬x3) if x1 \= 1, x2 \= 1, x3 \= 0. (answer 0 or 1) {=0}
+
+// Exercises 9, Ex 8(1) | tautology, zero-one-method | difficulty 2
+::ex9-8-1::[html]Is (A ∧ B) → A a tautology? (yes/no) {T}
+
+// Exercises 9, Ex 8(5) | tautology, zero-one-method | difficulty 2
+::ex9-8-5::[html]Is ¬(A → B) → ¬B a tautology? (yes/no) {T}
+
+// Exercises 9, Ex 9(6) | logical-equivalence | difficulty 2
+::ex9-9-6::[html]Are ¬(B ∧ C) and ¬B ∨ ¬C logically equivalent? (yes/no) {T}
+
+// Exercises 9, Ex 9(7) | logical-equivalence | difficulty 2
+::ex9-9-7::[html]Are A → B and ¬A ∨ B logically equivalent? (yes/no) {T}
+
+// Exercises 8, Ex 8(2) | statement, logical-connectives | difficulty 1
+::ex8-8-2::[html]Let A \= "I study logic", B \= "I will be an engineer". Which formula represents\: "I study logic but I will not be an engineer"? {
+    ~A ∧ B#Incorrect
+    =A ∧ ¬B#Correct
+    ~¬A ∧ ¬B#Incorrect
+    ~A → ¬B#Incorrect
+}
+
+// Exercises 8, Ex 8(5) | statement, logical-connectives | difficulty 1
+::ex8-8-5::[html]Let A \= "I study logic", B \= "I will be an engineer". Which formula represents\: "If I study logic, then I will be an engineer"? {
+    ~A ∨ B#Incorrect
+    ~B → A#Incorrect
+    =A → B#Correct
+    ~A ↔ B#Incorrect
+}
+
+// Exercises 1, Ex 4/8a | set-operations | difficulty 1
+::ex1-4-def::[html]What is the symmetric difference A Δ B equal to? {
+    ~(A\\B) ∪ (B\\A)#Incorrect
+    ~(A ∪ B)\\(A ∩ B)#Incorrect
+    =Both — they are always equal#Correct
+    ~Neither of these#Incorrect
+}
+
+// Exercises 1, Ex 5(1) | set-operations | difficulty 2
+::ex1-5-comp::[html]Let A \= \{a, b, 1\}, B \= \{a, 1, 2\}, C \= \{1, 2\}. What is (A ∪ B)\\C ? {
+    =\{a, b\}#Correct
+    ~\{a\}#Incorrect
+    ~\{1, 2\}#Incorrect
+    ~\{a, b, 1, 2\}#Incorrect
+}
+
+// Exercises 1, Ex 3 | power-set | difficulty 1
+::ex1-3-power::[html]If A is a four-element set, how many elements does its power set P(A) contain? {
+    ~4#Incorrect
+    ~8#Incorrect
+    =16#Correct
+    ~24#Incorrect
+}
+
+// Exercises 1, Ex 7(6) | set-identities | difficulty 1
+::ex1-7-id::[html]Which equality is true for every set A? {
+    ~A Δ A \= A#Incorrect
+    ~A ∩ ∅ \= A#Incorrect
+    =A Δ ∅ \= A#Correct
+    ~A ∪ ∅ \= ∅#Incorrect
+}
+
+// Exercises 2, Ex 2 | cartesian-product | difficulty 1
+::ex2-2-card::[html]A and B are both four-element sets. How many ordered pairs does A × B contain? {
+    ~4#Incorrect
+    ~8#Incorrect
+    ~12#Incorrect
+    =16#Correct
+}
+
+// Exercises 2, Ex 4 | cartesian-product | difficulty 2
+::ex2-4-comm::[html]When does A × B \= B × A hold? {
+    ~Always, × is commutative#Incorrect
+    ~Never#Incorrect
+    =Only when A \= B, or when either set is empty#Correct
+    ~Whenever A ⊆ B#Incorrect
+}
+
+// Exercises 2, Ex 7 | binary-relations | difficulty 3
+::ex2-7-count::[html]How many different binary relations are there on a two-element set A? (A relation is any subset of A × A) {
+    ~4#Incorrect
+    ~8#Incorrect
+    =16#Correct
+    ~32#Incorrect
+}
+
+// Exercises 2, Ex 8(c) | relation-properties | difficulty 1
+::ex2-8-sym::[html]A binary relation r on A is symmetric if and only if\: {
+    ~(a, a) ∈ r for every a ∈ A#Incorrect
+    =(a, b) ∈ r implies (b, a) ∈ r#Correct
+    ~(a, b) ∈ r and (b, a) ∈ r imply a \= b#Incorrect
+    ~(a, b) ∈ r and (b, c) ∈ r imply (a, c) ∈ r#Incorrect
+}
+
+// Exercises 3, Ex 1(e) | functions-rel | difficulty 2
+::ex3-1-fn::[html]Which of these relations r ⊆ R × R is a function from R to R? {
+    ~x r y \: x² + y² \= 1#Incorrect
+    ~x r y \: x \= y²#Incorrect
+    =x r y \: y \= eˣ#Correct
+    ~x r y \: |x − y| \= 1#Incorrect
+}
+
+// Exercises 3, Ex 8(d) | functions-rel | difficulty 2
+::ex3-8-chi::[html]For the characteristic function χX of a set X ⊆ U, what is χ(A∩B)(x) equal to? {
+    ~χA(x) + χB(x)#Incorrect
+    =χA(x) · χB(x)#Correct
+    ~χA(x) − χB(x)#Incorrect
+    ~χA(x) + χB(x) − χA(x) · χB(x)#Incorrect
+}
+
+// Exercises 4, Ex 9 | ordering-relations | difficulty 2
+::ex4-9-well::[html]Why is ⟨Z, ≤⟩ NOT a well-ordering? {
+    ~≤ is not linear on Z#Incorrect
+    =Z has non-empty subsets (e.g. Z itself) with no smallest element#Correct
+    ~Some pairs of integers are incomparable under ≤#Incorrect
+    ~≤ is not transitive on Z#Incorrect
+}
+
+// Exercises 4, Ex 7 | bounds-sup-inf | difficulty 1
+::ex4-7-sup::[html]For B \= \{2, 3, 5\} ⊆ N with the usual ≤, what is sup(B)? {
+    ~3#Incorrect
+    =5#Correct
+    ~10#Incorrect
+    ~It does not exist#Incorrect
+}
+
+// Exercises 5, Ex 5/7 | algebraic-structures | difficulty 2
+::ex5-5-group::[html]Which of the following algebraic structures ⟨carrier, operation⟩ is a group? {
+    ~⟨N, +⟩#Incorrect
+    ~⟨Z, ·⟩#Incorrect
+    ~⟨N, ·⟩#Incorrect
+    =⟨Z, +⟩#Correct
+}
+
+// Exercises 5, Ex 7(b) | algebraic-structures | difficulty 1
+::ex5-7-neutral::[html]What is the neutral element of ⟨Z, ·⟩ (integers under multiplication)? {
+    ~0#Incorrect
+    =1#Correct
+    ~−1#Incorrect
+    ~There is none#Incorrect
+}
+
+// Exercises 6, Ex 2 | rings-fields | difficulty 2
+::ex6-1-ring::[html]Which algebraic structure ⟨carrier, \{+, ·\}⟩ is a commutative ring with 1? {
+    ~⟨N, \{+, ·\}⟩#Incorrect
+    ~⟨Mn(R), \{+, ·\}⟩ for n > 1#Incorrect
+    =⟨Z, \{+, ·\}⟩#Correct
+    ~None of them#Incorrect
+}
+
+// Exercises 6, Ex 8 | boolean-algebra | difficulty 2
+::ex6-8-bool::[html]In the Boolean algebra K \= ⟨P(A), ∅, A, \{∪, ∩, ¬\}⟩ built on a three-element set A, what is the complement of ∅? {
+    ~∅#Incorrect
+    ~\{∅\}#Incorrect
+    =A#Correct
+    ~It is undefined#Incorrect
+}
+
+// Exercises 7, Ex 4(1) | cardinality | difficulty 2
+::ex7-4-equin::[html]Which pair of sets is equinumerous (has the same cardinality)? {
+    =The even numbers and the odd numbers#Correct
+    ~N and R#Incorrect
+    ~R and the natural numbers#Incorrect
+    ~Any finite set and N#Incorrect
+}
+
+// Exercises 7, Ex 6 | countability | difficulty 2
+::ex7-6-count::[html]Every subset of a countable set is\: {
+    ~always finite#Incorrect
+    =either finite or countable#Correct
+    ~always uncountable#Incorrect
+    ~always empty#Incorrect
+}
+
+// Exercises 8, Ex 5(5) | statement | difficulty 1
+::ex8-5-stmt::[html]Which of these sentences is NOT a statement in propositional logic? {
+    ~"2 + 5 \= 4"#Incorrect
+    ="x + 7 \= 11"#Correct
+    ~"Berlin is the capital of Germany"#Incorrect
+    ~"2 ≥ 10"#Incorrect
+}
+
+// Exercises 9, Ex 3/4 | formula-syntax | difficulty 1
+::ex9-3-wff::[html]Which of the following is a correctly constructed formula of propositional logic? {
+    ~A ∧ ∨ B#Incorrect
+    =¬(A ∧ B) → (¬A ∨ B)#Correct
+    ~(A → )(B ∧ C)#Incorrect
+    ~¬(A ∧ B →#Incorrect
+}
+
+// Exercises 9, Ex 8(2) | tautology, zero-one-method | difficulty 2
+::ex9-8-2::[html]Is A → (A ∨ B) a tautology? (yes/no) {T}
+
+// Exercises 9, Ex 8(3) | tautology, zero-one-method | difficulty 2
+::ex9-8-3::[html]Is ¬A → (A → B) a tautology? (yes/no) {T}
+
+// Exercises 9, Ex 8 (discussion) | tautology | difficulty 2
+::ex9-tb-variant::[html]Is (A ∨ B) → A a tautology? (yes/no) {F}
+
+// Exercises 10, Ex 7(1) | inference-rules, tautology | difficulty 2
+::ex10-7-axiom::[html]Axiom 1 of propositional calculus\: is A → (B → A) a tautology? (yes/no) {T}
+
+// Exercises 9, Ex 8 (method) | zero-one-method, truth-table | difficulty 1
+::ex9-zeroone::[html]Using the zero-one method on a formula with three distinct variables, how many rows does its truth table have? {
+    ~3#Incorrect
+    ~6#Incorrect
+    =8#Correct
+    ~9#Incorrect
+}
+
+// Exercises 9, Ex 9(1) | logical-equivalence | difficulty 1
+::ex9-9-idem::[html]Are A ∨ A and A logically equivalent? (yes/no) {T}
+
+// Exercises 9, Ex 9(8) | logical-equivalence | difficulty 2
+::ex9-9-contraposition::[html]Are A → B and ¬B → ¬A logically equivalent? (yes/no) {T}
+
+// Exercises 9, Ex 9 (discussion) | logical-equivalence, logical-connectives | difficulty 2
+::ex9-9-xor::[html]Are A ⊕ B and A ∨ B logically equivalent? (yes/no) {F}
+
+// Exercises 11, Ex 11 (laws of algebra of logic) | boolean-algebra-laws, logical-equivalence | difficulty 2
+::ex11-11-absorption::[html]Absorption law\: are A ∨ (A ∧ B) and A logically equivalent? (yes/no) {T}
+
+// Exercises 10, Ex 2(2) | inference-rules | difficulty 1
+::ex10-2-mt::[html]Which inference rule concludes ¬A from the premises A → B and ¬B? {
+    ~Modus ponens#Incorrect
+    =Modus tollens#Correct
+    ~Syllogism rule#Incorrect
+    ~Tollendo ponens#Incorrect
+}
+
+// Exercises 10, Ex 2(8) | inference-rules | difficulty 2
+::ex10-2-prob::[html]The scheme "A → B, B, therefore probably A" is\: {
+    ~reliable — it is modus ponens#Incorrect
+    =only probabilistic — affirming the consequent is not reliable#Correct
+    ~reliable — it is modus tollens#Incorrect
+    ~reliable — it is the syllogism rule#Incorrect
+}
+
+// Exercises 13, Ex 11(3) | quantifiers, predicate | difficulty 2
+::ex13-11-all::[html]Let K(x, y) mean "x knows y". Which formula says "Everyone knows everyone"? {
+    =∀x∀y K(x, y)#Correct
+    ~∃x∃y K(x, y)#Incorrect
+    ~∀x∃y K(x, y)#Incorrect
+    ~∃x∀y K(x, y)#Incorrect
+}
+
+// Exercises 13, Ex 11(2) | quantifiers, predicate | difficulty 3
+::ex13-11-notall::[html]Let K(x, y) mean "x knows y". Which formula says "Not everyone knows someone"? {
+    =¬∀x∃y K(x, y)#Correct
+    ~∀x∃y K(x, y)#Incorrect
+    ~∀x¬∃y K(x, y)#Incorrect
+    ~∃y∀x ¬K(x, y)#Incorrect
+}
+
+// Exercises 12, Ex 1 | concept-logic | difficulty 1
+::ex12-1-denot::[html]What is the scope (denotation) of the concept "bird"? {
+    =The set of all objects the concept covers — all birds#Correct
+    ~The definition's essential attributes#Incorrect
+    ~The word's etymology#Incorrect
+    ~One prototypical example#Incorrect
+}
+
+// Exercises 12, Ex 7(2) | concept-logic | difficulty 2
+::ex12-7-gen::[html]Generalizing the concept "rose", we obtain\: {
+    ~"tea rose"#Incorrect
+    ="flower"#Correct
+    ~"red rose"#Incorrect
+    ~"thorn"#Incorrect
+}
+
+// Exercises 15, Ex 4 | fuzzy-sets | difficulty 3
+::ex15-4-hamming::[html]On U \= \{1,2,3,4,5\}\: χX(i) \= 0.05·i and χY(i) \= 0.5. What is the Hamming distance ρ(X, Y)? {
+    ~0.75#Incorrect
+    =1.75#Correct
+    ~2.50#Incorrect
+    ~0.45#Incorrect
+}
+
+// Exercises 15, Ex 3(b) | fuzzy-sets | difficulty 1
+::ex15-3-op::[html]For fuzzy sets given by membership functions, the intersection is computed using which operation on membership degrees? {
+    ~max#Incorrect
+    =min#Correct
+    ~sum#Incorrect
+    ~average#Incorrect
+}
