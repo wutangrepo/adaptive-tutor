@@ -1,0 +1,184 @@
+item_id,type,difficulty,concepts,source,answer_text,tag,deterministic,llm_awarded,agree,latency_s,raw_snippet
+ex11-4,logic_eval,2,logical-function|function-evaluation,"Exercises 11, Ex 4",0,correct_canonical,1,1,1,2.424,{'awarded': 1}
+ex11-4,logic_eval,2,logical-function|function-evaluation,"Exercises 11, Ex 4",1,wrong_canonical,0,0,1,2.379,{'awarded': 0}
+ex11-4,logic_eval,2,logical-function|function-evaluation,"Exercises 11, Ex 4",false,correct_variant,1,0,0,15.863,{'awarded': 0}
+ex11-4,logic_eval,2,logical-function|function-evaluation,"Exercises 11, Ex 4", 1 ,wrong_noisy,0,1,0,3.063,```json {'awarded': 1} ```
+ex11-5,logic_eval,2,logical-function|function-evaluation,"Exercises 11, Ex 5",0,correct_canonical,1,0,0,2.605,{'awarded': 0}
+ex11-5,logic_eval,2,logical-function|function-evaluation,"Exercises 11, Ex 5",1,wrong_canonical,0,0,1,2.631,{'awarded': 0}
+ex11-5,logic_eval,2,logical-function|function-evaluation,"Exercises 11, Ex 5",false,correct_variant,1,0,0,2.646,{'awarded': 0}
+ex11-5,logic_eval,2,logical-function|function-evaluation,"Exercises 11, Ex 5", 1 ,wrong_noisy,0,1,0,2.706,{'awarded': 1}
+ex11-6,logic_eval,3,logical-function|function-evaluation,"Exercises 11, Ex 6",0,correct_canonical,1,1,1,3.177,{'awarded': 1}
+ex11-6,logic_eval,3,logical-function|function-evaluation,"Exercises 11, Ex 6",1,wrong_canonical,0,0,1,3.13,{'awarded': 0}
+ex11-6,logic_eval,3,logical-function|function-evaluation,"Exercises 11, Ex 6",false,correct_variant,1,0,0,3.104,{'awarded': 0}
+ex11-6,logic_eval,3,logical-function|function-evaluation,"Exercises 11, Ex 6", 1 ,wrong_noisy,0,1,0,3.157,{'awarded': 1}
+ex9-8-1,tautology_check,2,tautology|zero-one-method,"Exercises 9, Ex 8(1)",yes,correct_canonical,1,1,1,2.097,{'awarded': 1}
+ex9-8-1,tautology_check,2,tautology|zero-one-method,"Exercises 9, Ex 8(1)",no,wrong_canonical,0,1,0,2.12,{'awarded': 1}
+ex9-8-1,tautology_check,2,tautology|zero-one-method,"Exercises 9, Ex 8(1)",Yes,correct_variant,1,1,1,2.088,{'awarded': 1}
+ex9-8-1,tautology_check,2,tautology|zero-one-method,"Exercises 9, Ex 8(1)",tautology,correct_synonym,1,1,1,2.071,{'awarded': 1}
+ex9-8-5,tautology_check,2,tautology|zero-one-method,"Exercises 9, Ex 8(5)",yes,correct_canonical,1,1,1,2.362,{ 'awarded': 1 }
+ex9-8-5,tautology_check,2,tautology|zero-one-method,"Exercises 9, Ex 8(5)",no,wrong_canonical,0,0,1,2.055,{'awarded': 0}
+ex9-8-5,tautology_check,2,tautology|zero-one-method,"Exercises 9, Ex 8(5)",Yes,correct_variant,1,1,1,2.051,{'awarded': 1}
+ex9-8-5,tautology_check,2,tautology|zero-one-method,"Exercises 9, Ex 8(5)",tautology,correct_synonym,1,0,0,2.104,{'awarded': 0}
+ex9-9-6,equivalence_check,2,logical-equivalence,"Exercises 9, Ex 9(6)",yes,correct_canonical,1,1,1,2.199,{'awarded': 1}
+ex9-9-6,equivalence_check,2,logical-equivalence,"Exercises 9, Ex 9(6)",no,wrong_canonical,0,1,0,2.113,{'awarded': 1}
+ex9-9-6,equivalence_check,2,logical-equivalence,"Exercises 9, Ex 9(6)",Yes,correct_variant,1,1,1,2.135,{'awarded': 1}
+ex9-9-6,equivalence_check,2,logical-equivalence,"Exercises 9, Ex 9(6)",equivalent,correct_synonym,1,1,1,2.178,{'awarded': 1}
+ex9-9-7,equivalence_check,2,logical-equivalence,"Exercises 9, Ex 9(7)",yes,correct_canonical,1,1,1,2.11,{'awarded': 1}
+ex9-9-7,equivalence_check,2,logical-equivalence,"Exercises 9, Ex 9(7)",no,wrong_canonical,0,0,1,2.029,{'awarded': 0}
+ex9-9-7,equivalence_check,2,logical-equivalence,"Exercises 9, Ex 9(7)",Yes,correct_variant,1,1,1,2.035,{'awarded': 1}
+ex9-9-7,equivalence_check,2,logical-equivalence,"Exercises 9, Ex 9(7)",equivalent,correct_synonym,1,1,1,2.063,{'awarded': 1}
+ex8-8-2,mcq,1,statement|logical-connectives,"Exercises 8, Ex 8(2)",1,correct_canonical,1,1,1,2.518,{'awarded': 1}
+ex8-8-2,mcq,1,statement|logical-connectives,"Exercises 8, Ex 8(2)",2,wrong_canonical,0,0,1,2.519,{'awarded': 0}
+ex8-8-2,mcq,1,statement|logical-connectives,"Exercises 8, Ex 8(2)",A ∧ ¬B,correct_text_variant,1,1,1,2.538,{'awarded': 1}
+ex8-8-2,mcq,1,statement|logical-connectives,"Exercises 8, Ex 8(2)",¬A ∧ ¬B,wrong_text_variant,0,0,1,2.552,{'awarded': 0}
+ex8-8-5,mcq,1,statement|logical-connectives,"Exercises 8, Ex 8(5)",2,correct_canonical,1,1,1,2.499,{'awarded': 1}
+ex8-8-5,mcq,1,statement|logical-connectives,"Exercises 8, Ex 8(5)",3,wrong_canonical,0,0,1,2.475,{'awarded': 0}
+ex8-8-5,mcq,1,statement|logical-connectives,"Exercises 8, Ex 8(5)",A → B,correct_text_variant,1,1,1,2.494,{'awarded': 1}
+ex8-8-5,mcq,1,statement|logical-connectives,"Exercises 8, Ex 8(5)",A ↔ B,wrong_text_variant,0,0,1,2.547,{'awarded': 0}
+ex1-4-def,mcq,1,set-operations,"Exercises 1, Ex 4/8a",2,correct_canonical,1,1,1,2.479,{'awarded': 1}
+ex1-4-def,mcq,1,set-operations,"Exercises 1, Ex 4/8a",3,wrong_canonical,0,1,0,2.477,{'awarded': 1}
+ex1-4-def,mcq,1,set-operations,"Exercises 1, Ex 4/8a",Both — they are always equal,correct_text_variant,1,1,1,2.526,{'awarded': 1}
+ex1-4-def,mcq,1,set-operations,"Exercises 1, Ex 4/8a",Neither of these,wrong_text_variant,0,1,0,2.461,{'awarded': 1}
+ex1-5-comp,mcq,2,set-operations,"Exercises 1, Ex 5(1)",0,correct_canonical,1,1,1,2.761,{'awarded': 1}
+ex1-5-comp,mcq,2,set-operations,"Exercises 1, Ex 5(1)",1,wrong_canonical,0,0,1,2.71,{'awarded': 0}
+ex1-5-comp,mcq,2,set-operations,"Exercises 1, Ex 5(1)","{a, b}",correct_text_variant,1,1,1,2.753,{'awarded': 1}
+ex1-5-comp,mcq,2,set-operations,"Exercises 1, Ex 5(1)",{a},wrong_text_variant,0,1,0,2.721,{'awarded': 1}
+ex1-3-power,mcq,1,power-set,"Exercises 1, Ex 3",2,correct_canonical,1,1,1,2.307,{'awarded': 1}
+ex1-3-power,mcq,1,power-set,"Exercises 1, Ex 3",3,wrong_canonical,0,0,1,2.284,{'awarded': 0}
+ex1-3-power,mcq,1,power-set,"Exercises 1, Ex 3",16,correct_text_variant,1,1,1,2.313,{'awarded': 1}
+ex1-3-power,mcq,1,power-set,"Exercises 1, Ex 3",24,wrong_text_variant,0,0,1,2.301,{'awarded': 0}
+ex1-7-id,mcq,1,set-identities,"Exercises 1, Ex 7(6)",2,correct_canonical,1,1,1,2.388,{'awarded': 1}
+ex1-7-id,mcq,1,set-identities,"Exercises 1, Ex 7(6)",3,wrong_canonical,0,0,1,2.338,{'awarded': 0}
+ex1-7-id,mcq,1,set-identities,"Exercises 1, Ex 7(6)",A Δ ∅ = A,correct_text_variant,1,1,1,2.426,{'awarded': 1}
+ex1-7-id,mcq,1,set-identities,"Exercises 1, Ex 7(6)",A ∪ ∅ = ∅,wrong_text_variant,0,0,1,2.425,{'awarded': 0}
+ex2-2-card,mcq,1,cartesian-product,"Exercises 2, Ex 2",3,correct_canonical,1,1,1,2.33,{'awarded': 1}
+ex2-2-card,mcq,1,cartesian-product,"Exercises 2, Ex 2",0,wrong_canonical,0,1,0,2.276,{'awarded': 1}
+ex2-2-card,mcq,1,cartesian-product,"Exercises 2, Ex 2",16,correct_text_variant,1,1,1,2.297,{'awarded': 1}
+ex2-2-card,mcq,1,cartesian-product,"Exercises 2, Ex 2",4,wrong_text_variant,0,1,0,2.281,{'awarded': 1}
+ex2-4-comm,mcq,2,cartesian-product,"Exercises 2, Ex 4",2,correct_canonical,1,0,0,2.43,{'awarded': 0}
+ex2-4-comm,mcq,2,cartesian-product,"Exercises 2, Ex 4",3,wrong_canonical,0,0,1,2.408,{'awarded': 0}
+ex2-4-comm,mcq,2,cartesian-product,"Exercises 2, Ex 4","Only when A = B, or when either set is empty",correct_text_variant,1,1,1,2.473,{'awarded': 1}
+ex2-4-comm,mcq,2,cartesian-product,"Exercises 2, Ex 4",Whenever A ⊆ B,wrong_text_variant,0,0,1,2.425,{'awarded': 0}
+ex2-7-count,mcq,3,binary-relations,"Exercises 2, Ex 7",2,correct_canonical,1,0,0,2.387,{'awarded': 0}
+ex2-7-count,mcq,3,binary-relations,"Exercises 2, Ex 7",3,wrong_canonical,0,0,1,2.361,{'awarded': 0}
+ex2-7-count,mcq,3,binary-relations,"Exercises 2, Ex 7",16,correct_text_variant,1,1,1,2.36,{'awarded': 1}
+ex2-7-count,mcq,3,binary-relations,"Exercises 2, Ex 7",32,wrong_text_variant,0,1,0,2.363,{'awarded': 1}
+ex2-8-sym,mcq,1,relation-properties,"Exercises 2, Ex 8(c)",1,correct_canonical,1,1,1,2.904,{'awarded': 1}
+ex2-8-sym,mcq,1,relation-properties,"Exercises 2, Ex 8(c)",2,wrong_canonical,0,0,1,2.845,{'awarded': 0}
+ex2-8-sym,mcq,1,relation-properties,"Exercises 2, Ex 8(c)","(a, b) ∈ r implies (b, a) ∈ r",correct_text_variant,1,1,1,3.101,{'awarded': 1}
+ex2-8-sym,mcq,1,relation-properties,"Exercises 2, Ex 8(c)","(a, b) ∈ r and (b, a) ∈ r imply a = b",wrong_text_variant,0,0,1,3.123,{'awarded': 0}
+ex3-1-fn,mcq,2,functions-rel,"Exercises 3, Ex 1(e)",2,correct_canonical,1,1,1,2.699,{'awarded': 1}
+ex3-1-fn,mcq,2,functions-rel,"Exercises 3, Ex 1(e)",3,wrong_canonical,0,0,1,2.682,{ 'awarded': 0 }
+ex3-1-fn,mcq,2,functions-rel,"Exercises 3, Ex 1(e)",x r y : y = eˣ,correct_text_variant,1,1,1,2.725,{'awarded': 1}
+ex3-1-fn,mcq,2,functions-rel,"Exercises 3, Ex 1(e)",x r y : |x − y| = 1,wrong_text_variant,0,0,1,2.719,{'awarded': 0}
+ex3-8-chi,mcq,2,functions-rel,"Exercises 3, Ex 8(d)",1,correct_canonical,1,1,1,2.829,{'awarded': 1}
+ex3-8-chi,mcq,2,functions-rel,"Exercises 3, Ex 8(d)",2,wrong_canonical,0,0,1,2.789,{'awarded': 0}
+ex3-8-chi,mcq,2,functions-rel,"Exercises 3, Ex 8(d)",χA(x) · χB(x),correct_text_variant,1,1,1,2.892,{'awarded': 1}
+ex3-8-chi,mcq,2,functions-rel,"Exercises 3, Ex 8(d)",χA(x) − χB(x),wrong_text_variant,0,0,1,2.871,{'awarded': 0}
+ex4-9-well,mcq,2,ordering-relations,"Exercises 4, Ex 9",1,correct_canonical,1,1,1,2.571,{'awarded': 1}
+ex4-9-well,mcq,2,ordering-relations,"Exercises 4, Ex 9",2,wrong_canonical,0,0,1,2.516,{'awarded': 0}
+ex4-9-well,mcq,2,ordering-relations,"Exercises 4, Ex 9",Z has non-empty subsets (e.g. Z itself) with no smallest element,correct_text_variant,1,1,1,2.7,{'awarded': 1}
+ex4-9-well,mcq,2,ordering-relations,"Exercises 4, Ex 9",Some pairs of integers are incomparable under ≤,wrong_text_variant,0,0,1,2.633,{'awarded': 0}
+ex4-7-sup,mcq,1,bounds-sup-inf,"Exercises 4, Ex 7",1,correct_canonical,1,1,1,2.42,{'awarded': 1}
+ex4-7-sup,mcq,1,bounds-sup-inf,"Exercises 4, Ex 7",2,wrong_canonical,0,1,0,2.381,{'awarded': 1}
+ex4-7-sup,mcq,1,bounds-sup-inf,"Exercises 4, Ex 7",5,correct_text_variant,1,1,1,2.351,{'awarded': 1}
+ex4-7-sup,mcq,1,bounds-sup-inf,"Exercises 4, Ex 7",10,wrong_text_variant,0,0,1,2.38,{'awarded': 0}
+ex5-5-group,mcq,2,algebraic-structures,"Exercises 5, Ex 5/7",3,correct_canonical,1,1,1,2.418,{'awarded': 1}
+ex5-5-group,mcq,2,algebraic-structures,"Exercises 5, Ex 5/7",0,wrong_canonical,0,0,1,2.36,{'awarded': 0}
+ex5-5-group,mcq,2,algebraic-structures,"Exercises 5, Ex 5/7","⟨Z, +⟩",correct_text_variant,1,1,1,2.446,{'awarded': 1}
+ex5-5-group,mcq,2,algebraic-structures,"Exercises 5, Ex 5/7","⟨N, +⟩",wrong_text_variant,0,0,1,2.439,{'awarded': 0}
+ex5-7-neutral,mcq,1,algebraic-structures,"Exercises 5, Ex 7(b)",1,correct_canonical,1,1,1,2.264,{'awarded': 1}
+ex5-7-neutral,mcq,1,algebraic-structures,"Exercises 5, Ex 7(b)",2,wrong_canonical,0,0,1,2.253,{'awarded': 0}
+ex5-7-neutral,mcq,1,algebraic-structures,"Exercises 5, Ex 7(b)",−1,wrong_text_variant,0,1,0,2.277,{'awarded': 1}
+ex6-1-ring,mcq,2,rings-fields,"Exercises 6, Ex 2",2,correct_canonical,1,1,1,2.659,{'awarded': 1}
+ex6-1-ring,mcq,2,rings-fields,"Exercises 6, Ex 2",3,wrong_canonical,0,1,0,2.585,{'awarded': 1}
+ex6-1-ring,mcq,2,rings-fields,"Exercises 6, Ex 2","⟨Z, {+, ·}⟩",correct_text_variant,1,1,1,2.7,{'awarded': 1}
+ex6-1-ring,mcq,2,rings-fields,"Exercises 6, Ex 2",None of them,wrong_text_variant,0,1,0,2.606,{'awarded': 1}
+ex6-8-bool,mcq,2,boolean-algebra,"Exercises 6, Ex 8",2,correct_canonical,1,1,1,2.58,{'awarded': 1}
+ex6-8-bool,mcq,2,boolean-algebra,"Exercises 6, Ex 8",3,wrong_canonical,0,1,0,2.53,{'awarded': 1}
+ex6-8-bool,mcq,2,boolean-algebra,"Exercises 6, Ex 8",A,correct_text_variant,1,1,1,2.536,{'awarded': 1}
+ex6-8-bool,mcq,2,boolean-algebra,"Exercises 6, Ex 8",It is undefined,wrong_text_variant,0,1,0,2.568,{'awarded': 1}
+ex7-4-equin,mcq,2,cardinality,"Exercises 7, Ex 4(1)",0,correct_canonical,1,1,1,2.409,{'awarded': 1}
+ex7-4-equin,mcq,2,cardinality,"Exercises 7, Ex 4(1)",1,wrong_canonical,0,0,1,2.348,{'awarded': 0}
+ex7-4-equin,mcq,2,cardinality,"Exercises 7, Ex 4(1)",The even numbers and the odd numbers,correct_text_variant,1,1,1,2.448,{'awarded': 1}
+ex7-4-equin,mcq,2,cardinality,"Exercises 7, Ex 4(1)",N and R,wrong_text_variant,0,0,1,2.373,{'awarded': 0}
+ex7-6-count,mcq,2,countability,"Exercises 7, Ex 6",1,correct_canonical,1,1,1,2.234,{'awarded': 1}
+ex7-6-count,mcq,2,countability,"Exercises 7, Ex 6",2,wrong_canonical,0,0,1,2.274,{'awarded': 0}
+ex7-6-count,mcq,2,countability,"Exercises 7, Ex 6",either finite or countable,correct_text_variant,1,1,1,2.313,{'awarded': 1}
+ex7-6-count,mcq,2,countability,"Exercises 7, Ex 6",always uncountable,wrong_text_variant,0,0,1,2.329,{'awarded': 0}
+ex8-5-stmt,mcq,1,statement,"Exercises 8, Ex 5(5)",1,correct_canonical,1,1,1,2.599,{'awarded': 1}
+ex8-5-stmt,mcq,1,statement,"Exercises 8, Ex 5(5)",2,wrong_canonical,0,0,1,2.528,{'awarded': 0}
+ex8-5-stmt,mcq,1,statement,"Exercises 8, Ex 5(5)","""x + 7 = 11""",correct_text_variant,1,1,1,2.588,{'awarded': 1}
+ex8-5-stmt,mcq,1,statement,"Exercises 8, Ex 5(5)","""Berlin is the capital of Germany""",wrong_text_variant,0,0,1,2.594,{'awarded': 0}
+ex9-3-wff,mcq,1,formula-syntax,"Exercises 9, Ex 3/4",1,correct_canonical,1,1,1,2.536,{'awarded': 1}
+ex9-3-wff,mcq,1,formula-syntax,"Exercises 9, Ex 3/4",2,wrong_canonical,0,0,1,2.507,{'awarded': 0}
+ex9-3-wff,mcq,1,formula-syntax,"Exercises 9, Ex 3/4",¬(A ∧ B) → (¬A ∨ B),correct_text_variant,1,1,1,2.673,{'awarded': 1}
+ex9-3-wff,mcq,1,formula-syntax,"Exercises 9, Ex 3/4",(A → )(B ∧ C),wrong_text_variant,0,0,1,2.608,{'awarded': 0}
+ex9-8-2,tautology_check,2,tautology|zero-one-method,"Exercises 9, Ex 8(2)",yes,correct_canonical,1,1,1,2.099,{'awarded': 1}
+ex9-8-2,tautology_check,2,tautology|zero-one-method,"Exercises 9, Ex 8(2)",no,wrong_canonical,0,0,1,2.043,{'awarded': 0}
+ex9-8-2,tautology_check,2,tautology|zero-one-method,"Exercises 9, Ex 8(2)",Yes,correct_variant,1,1,1,2.026,{'awarded': 1}
+ex9-8-2,tautology_check,2,tautology|zero-one-method,"Exercises 9, Ex 8(2)",tautology,correct_synonym,1,1,1,2.068,{'awarded': 1}
+ex9-8-3,tautology_check,2,tautology|zero-one-method,"Exercises 9, Ex 8(3)",yes,correct_canonical,1,1,1,2.075,{'awarded': 1}
+ex9-8-3,tautology_check,2,tautology|zero-one-method,"Exercises 9, Ex 8(3)",no,wrong_canonical,0,0,1,2.043,{'awarded': 0}
+ex9-8-3,tautology_check,2,tautology|zero-one-method,"Exercises 9, Ex 8(3)",Yes,correct_variant,1,1,1,2.044,{'awarded': 1}
+ex9-8-3,tautology_check,2,tautology|zero-one-method,"Exercises 9, Ex 8(3)",tautology,correct_synonym,1,1,1,2.044,{'awarded': 1}
+ex9-tb-variant,tautology_check,2,tautology,"Exercises 9, Ex 8 (discussion)",no,correct_canonical,1,0,0,2.104,{'awarded': 0}
+ex9-tb-variant,tautology_check,2,tautology,"Exercises 9, Ex 8 (discussion)",yes,wrong_canonical,0,1,0,2.037,{'awarded': 1}
+ex9-tb-variant,tautology_check,2,tautology,"Exercises 9, Ex 8 (discussion)",No,correct_variant,1,0,0,2.062,{'awarded': 0}
+ex9-tb-variant,tautology_check,2,tautology,"Exercises 9, Ex 8 (discussion)",not,wrong_synonym,1,0,0,2.064,{'awarded': 0}
+ex10-7-axiom,tautology_check,2,inference-rules|tautology,"Exercises 10, Ex 7(1)",yes,correct_canonical,1,1,1,2.179,{'awarded': 1}
+ex10-7-axiom,tautology_check,2,inference-rules|tautology,"Exercises 10, Ex 7(1)",no,wrong_canonical,0,0,1,2.127,{'awarded': 0}
+ex10-7-axiom,tautology_check,2,inference-rules|tautology,"Exercises 10, Ex 7(1)",Yes,correct_variant,1,1,1,2.124,{'awarded': 1}
+ex10-7-axiom,tautology_check,2,inference-rules|tautology,"Exercises 10, Ex 7(1)",tautology,correct_synonym,1,1,1,2.152,{'awarded': 1}
+ex9-zeroone,mcq,1,zero-one-method|truth-table,"Exercises 9, Ex 8 (method)",2,correct_canonical,1,0,0,2.338,{'awarded': 0}
+ex9-zeroone,mcq,1,zero-one-method|truth-table,"Exercises 9, Ex 8 (method)",3,wrong_canonical,0,0,1,2.308,{'awarded': 0}
+ex9-zeroone,mcq,1,zero-one-method|truth-table,"Exercises 9, Ex 8 (method)",8,correct_text_variant,1,1,1,2.277,{'awarded': 1}
+ex9-zeroone,mcq,1,zero-one-method|truth-table,"Exercises 9, Ex 8 (method)",9,wrong_text_variant,0,0,1,2.305,{'awarded': 0}
+ex9-9-idem,equivalence_check,1,logical-equivalence,"Exercises 9, Ex 9(1)",yes,correct_canonical,1,1,1,2.016,{'awarded': 1}
+ex9-9-idem,equivalence_check,1,logical-equivalence,"Exercises 9, Ex 9(1)",no,wrong_canonical,0,1,0,1.99,{'awarded': 1}
+ex9-9-idem,equivalence_check,1,logical-equivalence,"Exercises 9, Ex 9(1)",Yes,correct_variant,1,1,1,1.995,{'awarded': 1}
+ex9-9-idem,equivalence_check,1,logical-equivalence,"Exercises 9, Ex 9(1)",equivalent,correct_synonym,1,1,1,2.019,{'awarded': 1}
+ex9-9-contraposition,equivalence_check,2,logical-equivalence,"Exercises 9, Ex 9(8)",yes,correct_canonical,1,1,1,2.094,{'awarded': 1}
+ex9-9-contraposition,equivalence_check,2,logical-equivalence,"Exercises 9, Ex 9(8)",no,wrong_canonical,0,1,0,2.051,{'awarded': 1}
+ex9-9-contraposition,equivalence_check,2,logical-equivalence,"Exercises 9, Ex 9(8)",Yes,correct_variant,1,1,1,2.054,{'awarded': 1}
+ex9-9-contraposition,equivalence_check,2,logical-equivalence,"Exercises 9, Ex 9(8)",equivalent,correct_synonym,1,1,1,2.078,{'awarded': 1}
+ex9-9-xor,equivalence_check,2,logical-equivalence|logical-connectives,"Exercises 9, Ex 9 (discussion)",no,correct_canonical,1,1,1,2.119,{'awarded': 1}
+ex9-9-xor,equivalence_check,2,logical-equivalence|logical-connectives,"Exercises 9, Ex 9 (discussion)",yes,wrong_canonical,0,0,1,2.065,{'awarded': 0}
+ex9-9-xor,equivalence_check,2,logical-equivalence|logical-connectives,"Exercises 9, Ex 9 (discussion)",No,correct_variant,1,1,1,2.13,{ 'awarded': 1 }
+ex9-9-xor,equivalence_check,2,logical-equivalence|logical-connectives,"Exercises 9, Ex 9 (discussion)",not,wrong_synonym,1,0,0,2.099,{'awarded': 0}
+ex11-11-absorption,equivalence_check,2,boolean-algebra-laws|logical-equivalence,"Exercises 11, Ex 11 (laws of algebra of logic)",yes,correct_canonical,1,1,1,2.265,{'awarded': 1}
+ex11-11-absorption,equivalence_check,2,boolean-algebra-laws|logical-equivalence,"Exercises 11, Ex 11 (laws of algebra of logic)",no,wrong_canonical,0,0,1,2.263,{'awarded': 0}
+ex11-11-absorption,equivalence_check,2,boolean-algebra-laws|logical-equivalence,"Exercises 11, Ex 11 (laws of algebra of logic)",Yes,correct_variant,1,1,1,2.153,{'awarded': 1}
+ex11-11-absorption,equivalence_check,2,boolean-algebra-laws|logical-equivalence,"Exercises 11, Ex 11 (laws of algebra of logic)",equivalent,correct_synonym,1,1,1,2.163,{'awarded': 1}
+ex10-2-mt,mcq,1,inference-rules,"Exercises 10, Ex 2(2)",1,correct_canonical,1,1,1,2.387,{'awarded': 1}
+ex10-2-mt,mcq,1,inference-rules,"Exercises 10, Ex 2(2)",2,wrong_canonical,0,0,1,2.309,{'awarded': 0}
+ex10-2-mt,mcq,1,inference-rules,"Exercises 10, Ex 2(2)",Modus tollens,correct_text_variant,1,1,1,2.337,{'awarded': 1}
+ex10-2-mt,mcq,1,inference-rules,"Exercises 10, Ex 2(2)",Syllogism rule,wrong_text_variant,0,0,1,2.353,{'awarded': 0}
+ex10-2-prob,mcq,2,inference-rules,"Exercises 10, Ex 2(8)",1,correct_canonical,1,1,1,2.628,{'awarded': 1}
+ex10-2-prob,mcq,2,inference-rules,"Exercises 10, Ex 2(8)",2,wrong_canonical,0,0,1,2.573,{'awarded': 0}
+ex10-2-prob,mcq,2,inference-rules,"Exercises 10, Ex 2(8)",only probabilistic — affirming the consequent is not reliable,correct_text_variant,1,1,1,2.676,{'awarded': 1}
+ex10-2-prob,mcq,2,inference-rules,"Exercises 10, Ex 2(8)",reliable — it is modus tollens,wrong_text_variant,0,0,1,2.66,{'awarded': 0}
+ex13-11-all,mcq,2,quantifiers|predicate,"Exercises 13, Ex 11(3)",0,correct_canonical,1,1,1,2.676,{'awarded': 1}
+ex13-11-all,mcq,2,quantifiers|predicate,"Exercises 13, Ex 11(3)",1,wrong_canonical,0,0,1,2.656,{'awarded': 0}
+ex13-11-all,mcq,2,quantifiers|predicate,"Exercises 13, Ex 11(3)","∀x∀y K(x, y)",correct_text_variant,1,1,1,2.747,{'awarded': 1}
+ex13-11-all,mcq,2,quantifiers|predicate,"Exercises 13, Ex 11(3)","∃x∃y K(x, y)",wrong_text_variant,0,0,1,2.801,{'awarded': 0}
+ex13-11-notall,mcq,3,quantifiers|predicate,"Exercises 13, Ex 11(2)",0,correct_canonical,1,1,1,2.745,{'awarded': 1}
+ex13-11-notall,mcq,3,quantifiers|predicate,"Exercises 13, Ex 11(2)",1,wrong_canonical,0,0,1,2.703,{'awarded': 0}
+ex13-11-notall,mcq,3,quantifiers|predicate,"Exercises 13, Ex 11(2)","¬∀x∃y K(x, y)",correct_text_variant,1,1,1,2.802,{'awarded': 1}
+ex13-11-notall,mcq,3,quantifiers|predicate,"Exercises 13, Ex 11(2)","∀x∃y K(x, y)",wrong_text_variant,0,0,1,2.867,{'awarded': 0}
+ex12-1-denot,mcq,1,concept-logic,"Exercises 12, Ex 1",0,correct_canonical,1,1,1,2.463,{'awarded': 1}
+ex12-1-denot,mcq,1,concept-logic,"Exercises 12, Ex 1",1,wrong_canonical,0,0,1,2.422,{'awarded': 0}
+ex12-1-denot,mcq,1,concept-logic,"Exercises 12, Ex 1",The set of all objects the concept covers — all birds,correct_text_variant,1,1,1,2.556,{'awarded': 1}
+ex12-1-denot,mcq,1,concept-logic,"Exercises 12, Ex 1",The definition's essential attributes,wrong_text_variant,0,0,1,2.489,{'awarded': 0}
+ex12-7-gen,mcq,2,concept-logic,"Exercises 12, Ex 7(2)",1,correct_canonical,1,0,0,2.303,{'awarded': 0}
+ex12-7-gen,mcq,2,concept-logic,"Exercises 12, Ex 7(2)",2,wrong_canonical,0,1,0,2.306,{'awarded': 1}
+ex12-7-gen,mcq,2,concept-logic,"Exercises 12, Ex 7(2)","""flower""",correct_text_variant,1,1,1,2.295,{'awarded': 1}
+ex12-7-gen,mcq,2,concept-logic,"Exercises 12, Ex 7(2)","""red rose""",wrong_text_variant,0,0,1,2.291,{'awarded': 0}
+ex15-4-hamming,mcq,3,fuzzy-sets,"Exercises 15, Ex 4",1,correct_canonical,1,1,1,2.843,{'awarded': 1}
+ex15-4-hamming,mcq,3,fuzzy-sets,"Exercises 15, Ex 4",2,wrong_canonical,0,0,1,2.774,{'awarded': 0}
+ex15-4-hamming,mcq,3,fuzzy-sets,"Exercises 15, Ex 4",1.75,correct_text_variant,1,1,1,2.836,{'awarded': 1}
+ex15-4-hamming,mcq,3,fuzzy-sets,"Exercises 15, Ex 4",2.50,wrong_text_variant,0,1,0,2.831,{'awarded': 1}
+ex15-3-op,mcq,1,fuzzy-sets,"Exercises 15, Ex 3(b)",1,correct_canonical,1,1,1,2.296,{'awarded': 1}
+ex15-3-op,mcq,1,fuzzy-sets,"Exercises 15, Ex 3(b)",2,wrong_canonical,0,0,1,2.23,{'awarded': 0}
+ex15-3-op,mcq,1,fuzzy-sets,"Exercises 15, Ex 3(b)",min,correct_text_variant,1,1,1,2.234,{'awarded': 1}
+ex15-3-op,mcq,1,fuzzy-sets,"Exercises 15, Ex 3(b)",sum,wrong_text_variant,0,0,1,2.226,{'awarded': 0}
